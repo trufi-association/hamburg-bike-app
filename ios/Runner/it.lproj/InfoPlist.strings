@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  Runner
+
+  Created by Raimund Wege on 24.10.19.
+  Copyright © 2019 The Chromium Authors. All rights reserved.
+*/
+
+"NSLocationWhenInUseUsageDescription" = "Hamburg Bike App usa la tua posizione per visualizzarla sulla mappa.";
