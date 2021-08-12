@@ -70,7 +70,7 @@ Configuration setupTrufiConfiguration() {
   return Configuration(
     customTranslations: customTranslations,
     supportedLanguages: languages,
-    animations: AnimationConfiguration(success: null),
+    animations: AnimationConfiguration(),
     teamInformationEmail: "info@trufi.app",
     attribution: attribution,
     map: map,
