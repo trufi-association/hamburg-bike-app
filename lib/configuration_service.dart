@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:trufi_core/blocs/configuration/configuration.dart';
+import 'package:trufi_core/blocs/configuration/models/animation_configuration.dart';
 import 'package:trufi_core/blocs/configuration/models/attribution.dart';
 import 'package:trufi_core/blocs/configuration/models/language_configuration.dart';
 import 'package:trufi_core/blocs/configuration/models/map_configuration.dart';
@@ -69,6 +70,7 @@ Configuration setupTrufiConfiguration() {
   return Configuration(
     customTranslations: customTranslations,
     supportedLanguages: languages,
+    animations: AnimationConfiguration(success: null),
     teamInformationEmail: "info@trufi.app",
     attribution: attribution,
     map: map,
