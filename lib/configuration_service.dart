@@ -6,6 +6,7 @@ import 'package:trufi_core/blocs/configuration/models/attribution.dart';
 import 'package:trufi_core/blocs/configuration/models/language_configuration.dart';
 import 'package:trufi_core/blocs/configuration/models/map_configuration.dart';
 import 'package:trufi_core/blocs/configuration/models/url_collection.dart';
+import 'package:trufi_core/models/enums/server_type.dart';
 
 Configuration setupTrufiConfiguration() {
   // Attribution
@@ -46,7 +47,9 @@ Configuration setupTrufiConfiguration() {
   );
 
   // Urls
-  final urls = UrlCollection(openTripPlannerUrl: "");
+  final urls = UrlCollection(
+      openTripPlannerUrl:
+          "https://api.trufi.app/otp-hh/routers/default/index/graphql");
 
   // Map
   final map = MapConfiguration(
@@ -71,6 +74,7 @@ Configuration setupTrufiConfiguration() {
     customTranslations: customTranslations,
     supportedLanguages: languages,
     animations: AnimationConfiguration(),
+    serverType: ServerType.graphQLServer,
     teamInformationEmail: "info@trufi.app",
     attribution: attribution,
     map: map,
