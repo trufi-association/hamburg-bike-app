@@ -15,8 +15,6 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: const Color(0xFFF4F4F4),
@@ -61,27 +59,20 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
       body: Stack(
         children: [
           Column(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              const Spacer(),
-              if (isPortrait)
-                SizedBox(
-                  width: double.infinity,
-                  child: Image.asset(
-                    'assets/images/background-image.png',
-                    fit: BoxFit.fill,
-                  ),
-                )
-              else
-                Image.asset(
+              Center(
+                child: Image.asset(
                   'assets/images/background-image.png',
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
+                  height: 250,
                 ),
+              ),
             ],
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: ListView(
               children: [
                 const SizedBox(height: 40),
                 Text(
@@ -120,6 +111,7 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                     width: 175,
                   ),
                 ),
+                const SizedBox(height: 50),
               ],
             ),
           ),

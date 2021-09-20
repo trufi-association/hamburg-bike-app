@@ -52,8 +52,9 @@ Configuration setupTrufiConfiguration() {
 
   // Urls
   final urls = UrlCollection(
-      openTripPlannerUrl:
-          "https://api.trufi.app/otp-hh/routers/default/index/graphql");
+    openTripPlannerUrl:
+        "https://api.trufi.app/otp-hh/routers/default/index/graphql",
+  );
 
   // Map
   final map = MapConfiguration(
@@ -73,7 +74,10 @@ Configuration setupTrufiConfiguration() {
   ];
 
   final customTranslations = TrufiCustomLocalizations()
-    ..title = {const Locale("de"): "Bike App", const Locale("en"): "Bike App"}
+    ..title = {
+      const Locale("de"): "Nicht ohne mein Rad",
+      const Locale("en"): "Not without my bike"
+    }
     ..tagline = {const Locale("de"): "Hamburg", const Locale("en"): "Hamburg"};
 
   return Configuration(
@@ -82,10 +86,10 @@ Configuration setupTrufiConfiguration() {
     animations: AnimationConfiguration(),
     feedbackDefinition: FeedbackDefinition(
       FeedBackType.email,
-      "info@trufi.app",
+      "info@trufi-association.org",
     ),
     serverType: ServerType.graphQLServer,
-    teamInformationEmail: "info@trufi.app",
+    teamInformationEmail: "info@trufi-association.org",
     attribution: attribution,
     map: map,
     urls: urls,

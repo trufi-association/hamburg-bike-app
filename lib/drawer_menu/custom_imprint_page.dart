@@ -17,13 +17,9 @@ class _CustomImprintPageState extends State<CustomImprintPage> {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final isPortrait =
-        MediaQuery.of(context).orientation == Orientation.portrait;
     final isEnglish = Localizations.localeOf(context).languageCode == "en";
-    final textTheme = theme.textTheme.subtitle1.copyWith(
-      fontSize: 13,
-      height: 1.5
-    );
+    final textTheme =
+        theme.textTheme.subtitle1.copyWith(fontSize: 13, height: 1.5);
     return Scaffold(
       key: _scaffoldKey,
       backgroundColor: const Color(0xFFF4F4F4),
@@ -68,27 +64,20 @@ class _CustomImprintPageState extends State<CustomImprintPage> {
       body: Stack(
         children: [
           Column(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              const Spacer(),
-              if (isPortrait)
-                SizedBox(
-                  width: double.infinity,
-                  child: Image.asset(
-                    'assets/images/background-image.png',
-                    fit: BoxFit.fill,
-                  ),
-                )
-              else
-                Image.asset(
+              Center(
+                child: Image.asset(
                   'assets/images/background-image.png',
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
+                  height: 250,
                 ),
+              ),
             ],
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            child: ListView(
               children: [
                 const SizedBox(height: 40),
                 Text(
@@ -156,6 +145,7 @@ class _CustomImprintPageState extends State<CustomImprintPage> {
                       : "Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
                   style: textTheme,
                 ),
+                spacer,
               ],
             ),
           ),
