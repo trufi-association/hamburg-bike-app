@@ -7,6 +7,7 @@ import 'package:trufi_core/blocs/configuration/models/attribution.dart';
 import 'package:trufi_core/blocs/configuration/models/language_configuration.dart';
 import 'package:trufi_core/blocs/configuration/models/map_configuration.dart';
 import 'package:trufi_core/blocs/configuration/models/url_collection.dart';
+import 'package:trufi_core/models/definition_feedback.dart';
 import 'package:trufi_core/models/enums/server_type.dart';
 
 import 'map_configuration/custom_itinerary_creator.dart';
@@ -79,6 +80,10 @@ Configuration setupTrufiConfiguration() {
     customTranslations: customTranslations,
     supportedLanguages: languages,
     animations: AnimationConfiguration(),
+    feedbackDefinition: FeedbackDefinition(
+      FeedBackType.email,
+      "info@trufi.app",
+    ),
     serverType: ServerType.graphQLServer,
     teamInformationEmail: "info@trufi.app",
     attribution: attribution,
