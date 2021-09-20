@@ -6,6 +6,9 @@ import 'package:hamburg_bike_app/theme.dart';
 import 'package:trufi_core/pages/home/bike_app_home/bike_app_home_page.dart';
 import 'package:trufi_core/trufi_app.dart';
 
+import 'drawer_menu/custom_about_page.dart';
+import 'drawer_menu/custom_imprint_page.dart';
+import 'drawer_menu/drawer_menu.dart';
 import 'hive_init.dart';
 
 Future<void> main() async {
@@ -21,7 +24,12 @@ Future<void> main() async {
         MapLayer(MapLayerIds.light),
         MapLayer(MapLayerIds.dark),
       ],
+      menuItems: menuItems,
       customHomePage: BikeAppHomePage(),
+      routes: <String, WidgetBuilder>{
+        CustomAboutPage.route: (context) => const CustomAboutPage(),
+        CustomImprintPage.route: (context) => const CustomImprintPage(),
+      },
     ),
   );
 }
