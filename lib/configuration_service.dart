@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hamburg_bike_app/map_configuration/custom_marker_configuration.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:trufi_core/blocs/configuration/configuration.dart';
 import 'package:trufi_core/blocs/configuration/models/animation_configuration.dart';
@@ -7,6 +8,8 @@ import 'package:trufi_core/blocs/configuration/models/language_configuration.dar
 import 'package:trufi_core/blocs/configuration/models/map_configuration.dart';
 import 'package:trufi_core/blocs/configuration/models/url_collection.dart';
 import 'package:trufi_core/models/enums/server_type.dart';
+
+import 'map_configuration/custom_itinerary_creator.dart';
 
 Configuration setupTrufiConfiguration() {
   // Attribution
@@ -58,6 +61,8 @@ Configuration setupTrufiConfiguration() {
     center: LatLng(53.551086, 9.993682),
     southWest: LatLng(53.331927, 9.604565),
     northEast: LatLng(53.767577, 10.322638),
+    markersConfiguration: const CustomMarkerConfiguration(),
+    itinararyCreator: const CustomItineraryCreator(),
   );
 
   // Languages

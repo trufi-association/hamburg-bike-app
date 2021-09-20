@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 
 final stadtnaviTheme = ThemeData(
-  primaryColor: const Color(0xffCB1F26),
+  primaryColor: const Color(0xffE1011A),
   primaryColorLight: const Color(0xffeceff1),
-  accentColor: Colors.blue[900],
+  accentColor: Color(0xff003063),
   backgroundColor: Colors.white,
+  dividerColor: Color(0xff333333),
   textTheme: ThemeData.light().textTheme.copyWith(
-        bodyText1: const TextStyle(color: Color(0xFF000000)),
-        bodyText2: const TextStyle(color: Color(0xff005ca9)),
+        bodyText1: const TextStyle(color: Color(0xFF333333)),
+        bodyText2: const TextStyle(color: Color(0xff003063)),
         headline6: const TextStyle(color: Colors.white),
         subtitle1: const TextStyle(color: Color(0xff747474)),
       ),
@@ -21,23 +22,23 @@ final stadtnaviTheme = ThemeData(
 );
 
 final bottomBarTheme = ThemeData(
-  primaryColor: const Color(0xff005ca9),
-  accentColor: Colors.black,
+  primaryColor: const Color(0xff003063),
+  accentColor: Color(0xff003063),
   backgroundColor: Colors.white,
   textTheme: ThemeData.light().textTheme.copyWith(
-        bodyText1: const TextStyle(color: Color(0xFF000000), fontSize: 19),
-        bodyText2: const TextStyle(color: Color(0xff005ca9), fontSize: 19),
+        bodyText1: const TextStyle(color: Color(0xFF333333), fontSize: 19),
+        bodyText2: const TextStyle(color: Color(0xff003063), fontSize: 19),
         headline6: const TextStyle(color: Colors.white, fontSize: 19),
-        subtitle1: const TextStyle(color: Colors.white),
+        subtitle1: const TextStyle(color: Color(0xff747474), fontSize: 19),
       ),
   primaryTextTheme: ThemeData.light().primaryTextTheme.copyWith(
         bodyText1: const TextStyle(color: Color(0xFF000000), fontSize: 15),
-        bodyText2: const TextStyle(color: Color(0xff005ca9), fontSize: 15),
+        bodyText2: const TextStyle(color: Color(0xff003063), fontSize: 15),
         headline6: const TextStyle(color: Colors.white, fontSize: 15),
         subtitle1: const TextStyle(color: Colors.white, fontSize: 15),
       ),
   primaryIconTheme: ThemeData.light().primaryIconTheme.copyWith(
-        color: const Color(0xff005ca9),
+        color: const Color(0xff003063),
       ),
   accentIconTheme: ThemeData.light().primaryIconTheme.copyWith(
         color: Colors.black,
