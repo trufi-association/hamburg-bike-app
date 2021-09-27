@@ -88,9 +88,8 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                 const SizedBox(height: 24),
                 Text(
                   Localizations.localeOf(context).languageCode == "en"
-                      // TODO translate german
                       ? "We are the coolest group ever, any other questions?"
-                      : "We are the coolest group ever, any other questions?",
+                      : "Wir sind die coolste Gruppe aller Zeiten, habt ihr noch Fragen?",
                   style: theme.textTheme.subtitle1.copyWith(
                     fontSize: 24,
                   ),
