@@ -1,0 +1,60 @@
+import 'dart:async';
+import 'dart:convert';
+
+import 'package:http/http.dart' as http;
+import 'package:collection/collection.dart';
+import 'package:latlong2/latlong.dart';
+import 'package:trufi_core/blocs/location_search_bloc.dart';
+import 'package:trufi_core/location/location_search_storage.dart';
+import 'package:trufi_core/models/trufi_place.dart';
+import 'package:trufi_core/services/search_location/search_location_manager.dart';
+import 'package:trufi_core/widgets/custom_location_selector.dart';
+
+// import 'search_location_manager.dart';
+
+class CustomOfflineSearchLocation implements SearchLocationManager {
+  @override
+  Future<List<TrufiPlace>> fetchLocations(
+    // FavoriteLocationsCubit favoriteLocationsCubit,
+    LocationSearchBloc locationSearchBloc,
+    String query, {
+    String correlationId,
+    int limit = 30,
+  }) async {
+    final LocationSearchStorage storage = locationSearchBloc.storage;
+
+    final queryPlaces = await storage.fetchPlacesWithQuery(query);
+    final queryStreets = await storage.fetchStreetsWithQuery(query);
+
+    // Combine Places and Street sort by distance
+    final List<LevenshteinObject<TrufiPlace>> sortedLevenshteinObjects = [
+      ...queryPlaces, // High priority
+      ...queryStreets // Low priority
+    ]..sort((a, b) => a.distance.compareTo(b.distance));
+
+    // Remove levenshteinObject
+    final List<TrufiPlace> trufiPlaces = sortedLevenshteinObjects
+        .take(limit)
+        .map((LevenshteinObject<TrufiPlace> l) => l.object)
+        .toList();
+
+    // sort with street priority
+    mergeSort(trufiPlaces, compare: (a, b) => (a is TrufiStreet) ? -1 : 1);
+
+    return trufiPlaces;
+  }
+
+  @override
+  Future<LocationDetail> reverseGeodecoding(LatLng location) async {
+    final response = await http.get(
+      Uri.parse(
+        "https://api.trufi.app/nominatim-germany/reverse?lat=${location.latitude}&lon=${location.longitude}&format=json&zoom=17",
+      ),
+    );
+    final body = jsonDecode(utf8.decode(response.bodyBytes));
+    final String displayName = body["display_name"]?.toString();
+    final String road = body["address"]["road"]?.toString();
+    final String hamlet = body["address"]["hamlet"]?.toString();
+    return LocationDetail(road ?? displayName ?? "", hamlet ?? "", location);
+  }
+}

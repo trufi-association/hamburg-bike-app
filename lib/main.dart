@@ -11,6 +11,7 @@ import 'drawer_menu/custom_about_page.dart';
 import 'drawer_menu/custom_imprint_page.dart';
 import 'drawer_menu/drawer_menu.dart';
 import 'hive_init.dart';
+import 'offline_search_location.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -27,6 +28,7 @@ Future<void> main() async {
       ],
       menuItems: menuItems,
       customHomePage: BikeAppHomePage(),
+      searchLocationManager: CustomOfflineSearchLocation(),
       customRequestManager: BikeGraphQLRepository(
         graphQLEndPoint:
             "https://api.trufi.app/otp-hh/routers/default/index/graphql",
