@@ -59,7 +59,9 @@ class TransportDash extends StatelessWidget {
                 ? SizedBox(
                     height: 24,
                     width: 24,
-                    child: FittedBox(child: configuration.map.markersConfiguration.fromMarker),
+                    child: FittedBox(
+                        child:
+                            configuration.map.markersConfiguration.fromMarker),
                   )
                 : null,
           ),
@@ -71,40 +73,34 @@ class TransportDash extends StatelessWidget {
                           leg.fromPlace.bikeRentalStation.networks[0])
                       .color
                   : leg.transportMode.color,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              GestureDetector(
-                onTap: () {
-                  if (planPageController != null) {
-                    planPageController.inSelectePosition
-                        .add(LatLng(leg.fromPlace.lat, leg.fromPlace.lon));
-                  }
-                },
-                child: RouteNumber(
-                  transportMode: leg.transportMode,
-                  backgroundColor: leg?.route?.color != null
-                      ? Color(int.tryParse("0xFF${leg.route.color}"))
-                      : leg.transportMode.backgroundColor,
-                  icon: (leg?.route?.type ?? 0) == 715
-                      ? onDemandTaxiSvg(color: 'FFFFFF')
-                      : isTypeBikeRentalNetwork
-                          ? getBikeRentalNetwork(
-                                  leg.fromPlace.bikeRentalStation.networks[0])
-                              .image
-                          : null,
-                  text: leg?.route?.shortName != null
-                      ? leg.route.shortName
-                      : leg.transportMode.getTranslate(localization),
-                  tripHeadSing: leg.transportMode == TransportMode.carPool
-                      ? leg.toPlace.name
-                      : leg.headSign,
-                  duration: leg.durationLeg(localization),
-                  distance: leg.distanceString(localization),
-                ),
-              ),
-            ],
+          child: GestureDetector(
+            onTap: () {
+              if (planPageController != null) {
+                planPageController.inSelectePosition
+                    .add(LatLng(leg.fromPlace.lat, leg.fromPlace.lon));
+              }
+            },
+            child: RouteNumber(
+              transportMode: leg.transportMode,
+              backgroundColor: leg?.route?.color != null
+                  ? Color(int.tryParse("0xFF${leg.route.color}"))
+                  : leg.transportMode.backgroundColor,
+              icon: (leg?.route?.type ?? 0) == 715
+                  ? onDemandTaxiSvg(color: 'FFFFFF')
+                  : isTypeBikeRentalNetwork
+                      ? getBikeRentalNetwork(
+                              leg.fromPlace.bikeRentalStation.networks[0])
+                          .image
+                      : null,
+              text: leg?.route?.shortName != null
+                  ? leg.route.shortName
+                  : leg.transportMode.getTranslate(localization),
+              tripHeadSing: leg.transportMode == TransportMode.carPool
+                  ? leg.toPlace.name
+                  : leg.headSign,
+              duration: leg.durationLeg(localization),
+              distance: leg.distanceString(localization),
+            ),
           ),
         ),
         if (isNextTransport)
@@ -251,9 +247,11 @@ class SeparatorPlace extends StatelessWidget {
             ),
           const SizedBox(width: 5),
           if (child != null)
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 10),
-              child: child,
+            Expanded(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
+                child: child,
+              ),
             ),
         ],
       ),

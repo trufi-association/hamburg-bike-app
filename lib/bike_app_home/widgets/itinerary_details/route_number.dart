@@ -26,63 +26,61 @@ class RouteNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    return SizedBox(
-      width: 250,
-      child: Row(
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-            decoration: BoxDecoration(
-              color: transportMode == TransportMode.bicycle
-                  ? Colors.transparent
-                  : (backgroundColor ?? Colors.black),
-              borderRadius: BorderRadius.circular(5),
-            ),
-            child: Row(
-              children: [
-                if (icon != null)
-                  SizedBox(
-                    height: 20,
-                    width: 20,
-                    child: icon,
-                  )
-                else if (transportMode == TransportMode.bicycle)
-                  SizedBox(
-                    height: 20,
-                    width: 20,
-                    child: transportMode.getImage(color: transportMode.color),
-                  ),
-                if (transportMode != TransportMode.bicycle)
-                  Container(
-                    padding: const EdgeInsets.symmetric(horizontal: 2),
-                    child: Text(
-                      text,
-                      style: theme.primaryTextTheme.headline6.copyWith(
-                        fontWeight: FontWeight.w600,
-                      ),
+    return Row(
+      children: [
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+          decoration: BoxDecoration(
+            color: transportMode == TransportMode.bicycle
+                ? Colors.transparent
+                : (backgroundColor ?? Colors.black),
+            borderRadius: BorderRadius.circular(5),
+          ),
+          child: Row(
+            children: [
+              if (icon != null)
+                SizedBox(
+                  height: 20,
+                  width: 20,
+                  child: icon,
+                )
+              else if (transportMode == TransportMode.bicycle)
+                SizedBox(
+                  height: 20,
+                  width: 20,
+                  child: transportMode.getImage(color: transportMode.color),
+                ),
+              if (transportMode != TransportMode.bicycle)
+                Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 2),
+                  child: Text(
+                    text,
+                    style: theme.primaryTextTheme.headline6.copyWith(
+                      fontWeight: FontWeight.w600,
                     ),
                   ),
-              ],
-            ),
+                ),
+            ],
           ),
-          const SizedBox(width: 5),
-          Flexible(
-            child: Text(
-              transportMode != TransportMode.bicycle
-                  ? (tripHeadSing ?? '')
-                  : 'Rad fahren',
-              style: theme.primaryTextTheme.bodyText1
-                  .copyWith(fontSize: 13, color: Colors.grey[700]),
-              overflow: TextOverflow.visible,
-            ),
-          ),
-          Text(
-            ' - ${duration ?? ''}, ${distance ?? ''}',
+        ),
+        const SizedBox(width: 5),
+        Flexible(
+          child: Text(
+            transportMode != TransportMode.bicycle
+                ? (tripHeadSing ?? '')
+                : 'Rad fahrens',
             style: theme.primaryTextTheme.bodyText1
                 .copyWith(fontSize: 13, color: Colors.grey[700]),
+            overflow: TextOverflow.ellipsis,
+            maxLines: 1,
           ),
-        ],
-      ),
+        ),
+        Text(
+          ' - ${duration ?? ''}, ${distance ?? ''}',
+          style: theme.primaryTextTheme.bodyText1
+              .copyWith(fontSize: 13, color: Colors.grey[700]),
+        ),
+      ],
     );
   }
 }
