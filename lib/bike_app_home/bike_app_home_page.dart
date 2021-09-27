@@ -166,7 +166,7 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                         await payloadDataPlanCubit.resetDataDate();
                       },
                     ),
-                  const SizedBox(height: 35),
+                  const SizedBox(height: 30),
                   DateSelector(
                     color: const Color(0xff747474),
                     onFetchPlan: () {},
@@ -185,7 +185,7 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                         Flexible(
                           child: BlocBuilder<SearchLocationsCubit,
                               SearchLocationsState>(
-                            builder: (context, state) {
+                            builder: (contextBuilder, state) {
                               return ListView(
                                 scrollDirection: Axis.horizontal,
                                 physics: const BouncingScrollPhysics(),
@@ -219,7 +219,7 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                                         margin: const EdgeInsets.only(left: 8),
                                         child: InkWell(
                                           onTap: () {
-                                            _addNewPlace(context);
+                                            _addNewPlace();
                                           },
                                           child: Container(
                                             padding: const EdgeInsets.all(5),
@@ -306,7 +306,7 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
     );
   }
 
-  Future<void> _addNewPlace(BuildContext context) async {
+  Future<void> _addNewPlace() async {
     final searchLocationsCubit = context.read<SearchLocationsCubit>();
     final ChooseLocationDetail chooseLocationDetail =
         await ChooseLocationPage.selectPosition(
