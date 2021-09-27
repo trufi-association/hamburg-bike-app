@@ -90,6 +90,7 @@ class GraphqlBikePlanRepository {
             ? 'TRIANGLE'
             : null,
         'triangle': advancedOptions.triangleFactor.value,
+        'locale': locale ?? 'de',
         'arriveBy': advancedOptions.arriveBy,
       },
     );

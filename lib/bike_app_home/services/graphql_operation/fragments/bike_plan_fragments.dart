@@ -14,6 +14,7 @@ fragment bikePlan on QueryType {
     arriveBy: $arriveBy,
     optimize: $optimize, 
     triangle: $triangle, 
+    locale: $locale,
     ) {
     from{
       name,
