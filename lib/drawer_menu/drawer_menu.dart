@@ -43,7 +43,7 @@ class CustomAppShareButtonMenu extends MenuItem {
           name: (context) => MenuItem.buildName(
             context,
             Localizations.localeOf(context).languageCode == 'en'
-                ? "Share the app"
+                ? "Recommend the app"
                 : "App weiterempfehlen",
           ),
           onClick: (context, _) {
@@ -130,7 +130,9 @@ final List<List<MenuItem>> menuItems = [
       ),
       name: (context) {
         final localization = TrufiLocalization.of(context);
-        return localization.menuConnections;
+        return Localizations.localeOf(context).languageCode == 'en'
+            ? "Connections"
+            : localization.menuConnections;
       },
     ),
     MenuPageItem(
@@ -145,7 +147,9 @@ final List<List<MenuItem>> menuItems = [
       ),
       name: (context) {
         final localization = TrufiLocalization.of(context);
-        return localization.menuYourPlaces;
+        return Localizations.localeOf(context).languageCode == 'en'
+            ? "Favourites"
+            : localization.menuYourPlaces;
       },
     )
   ],
@@ -211,7 +215,7 @@ final List<List<MenuItem>> menuItems = [
       name: (context) => MenuItem.buildName(
         context,
         Localizations.localeOf(context).languageCode == "en"
-            ? "Rate the app"
+            ? "Rate app"
             : "App bewerten",
       ),
       onClick: () {

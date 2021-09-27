@@ -6,6 +6,8 @@ import 'package:trufi_core/entities/plan_entity/utils/time_utils.dart';
 import 'package:trufi_core/l10n/trufi_localization.dart';
 import 'package:trufi_core/models/enums/enums_plan/enums_plan.dart';
 
+import 'factor_selector.dart';
+
 class CardItinerary extends StatelessWidget {
   const CardItinerary({
     Key key,
@@ -18,6 +20,8 @@ class CardItinerary extends StatelessWidget {
     final theme = Theme.of(context);
     final localization = TrufiLocalization.of(context);
     final payloadDataPlanState = context.read<PayloadDataPlanCubit>().state;
+    final islanguageCodeEn =
+        Localizations.localeOf(context).languageCode == "en";
     return Container(
       height: 130,
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
@@ -38,7 +42,8 @@ class CardItinerary extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           Text(
-            itinerary.firstDeparture()?.headSign ?? localization.instructionVehicleBike,
+            itinerary.firstDeparture()?.headSign ??
+                localization.instructionVehicleBike,
             style: theme.textTheme.bodyText1.copyWith(
               fontWeight: FontWeight.w600,
               fontSize: 20,
@@ -75,8 +80,8 @@ class CardItinerary extends StatelessWidget {
                 ),
               ),
               Text(
-                payloadDataPlanState.triangleFactor
-                    .translateValue(localization),
+                factorTranslateValue(
+                    payloadDataPlanState.triangleFactor, islanguageCodeEn),
                 style: theme.textTheme.bodyText2
                     .copyWith(fontWeight: FontWeight.w500),
               ),

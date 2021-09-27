@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trufi_core/blocs/configuration/configuration_cubit.dart';
+import 'package:trufi_core/blocs/home_page_cubit.dart';
 import 'package:trufi_core/l10n/trufi_localization.dart';
 import 'package:trufi_core/models/enums/defaults_location.dart';
 import 'package:trufi_core/models/enums/enums_plan/enums_plan.dart';
@@ -22,6 +23,8 @@ class ItineraryLegOverview extends StatelessWidget {
   Widget build(BuildContext context) {
     final config = context.read<ConfigurationCubit>().state;
     final localization = TrufiLocalization.of(context);
+    final homePageCubit = context.watch<HomePageCubit>();
+    final homePageState = homePageCubit.state;
 
     final itinerary = planPageController.selectedItinerary;
     final compressedLegs = itinerary.compressLegs;
@@ -53,14 +56,14 @@ class ItineraryLegOverview extends StatelessWidget {
                               children: [
                                 DashLinePlace(
                                   date: itinerary.startTimeHHmm.toString(),
-                                  location: _getDisplayName(
-                                      itineraryLeg.fromPlace.name,
-                                      localization),
+                                  location: homePageState.fromPlace
+                                      .displayName(localization),
                                   child: SizedBox(
                                     height: 24,
                                     width: 24,
                                     child: FittedBox(
-                                        child: config.map.markersConfiguration.fromMarker),
+                                        child: config.map.markersConfiguration
+                                            .fromMarker),
                                   ),
                                 ),
                                 TransportDash(
@@ -172,13 +175,14 @@ class ItineraryLegOverview extends StatelessWidget {
                             ),
                           DashLinePlace(
                             date: itinerary.endTimeHHmm.toString(),
-                            location: _getDisplayName(
-                                itineraryLeg.toPlace.name, localization),
+                            location:
+                                homePageState.toPlace.displayName(localization),
                             child: SizedBox(
                                 height: 24,
                                 width: 24,
-                                child:
-                                    FittedBox(child: config.map.markersConfiguration.toMarker)),
+                                child: FittedBox(
+                                    child: config
+                                        .map.markersConfiguration.toMarker)),
                           ),
                         ],
                       ),

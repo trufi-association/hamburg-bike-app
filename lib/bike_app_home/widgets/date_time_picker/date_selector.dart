@@ -67,7 +67,9 @@ class DateSelector extends StatelessWidget {
                       padding: const EdgeInsets.symmetric(horizontal: 5.0),
                       child: Text(
                         payloadDataPlanCubit.state.date == null
-                            ? localization.commonLeavingNow
+                            ? (languageCode == 'en'
+                                ? "Departure now"
+                                : localization.commonLeavingNow)
                             : payloadDataPlanCubit.state.arriveBy
                                 ? "${localization.commonArrival} ${payloadDataPlanCubit.state.date.customFormat(languageCode)}"
                                 : "${localization.commonDeparture}  ${payloadDataPlanCubit.state.date.customFormat(languageCode)}",

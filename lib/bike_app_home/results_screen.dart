@@ -120,9 +120,8 @@ class _ResultsScreenState extends State<ResultsScreen> {
                         child: Center(
                           child: Text(
                             islanguageCodeEn
-                                ? "There ${homePageState.plan.itineraries.length > 1 ? "are" : "is"} "
-                                    "${homePageState?.plan?.itineraries?.length} possible "
-                                    "${homePageState.plan.itineraries.length > 1 ? "routes" : "route"}"
+                                ? "We found ${homePageState?.plan?.itineraries?.length} "
+                                    "${homePageState.plan.itineraries.length > 1 ? "routes" : "route"}  for you"
                                 : "Es gibt ${homePageState?.plan?.itineraries?.length} mögliche Routen",
                             style: theme.textTheme.subtitle1
                                 .copyWith(fontSize: 25),
@@ -194,7 +193,9 @@ class _ResultsScreenState extends State<ResultsScreen> {
                                         ),
                                       ),
                                       child: Text(
-                                        islanguageCodeEn ? "MORE SHOWS" : "MEHR ANZEIGEN",
+                                        islanguageCodeEn
+                                            ? "SHOW MORE"
+                                            : "MEHR ANZEIGEN",
                                         style:
                                             theme.textTheme.subtitle1.copyWith(
                                           fontSize: 18,

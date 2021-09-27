@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hamburg_bike_app/bike_app_home/widgets/factor_selector.dart';
 import 'package:trufi_core/blocs/configuration/configuration_cubit.dart';
 import 'package:trufi_core/blocs/home_page_cubit.dart';
 import 'package:trufi_core/blocs/payload_data_plan/payload_data_plan_cubit.dart';
@@ -126,7 +127,8 @@ class ItineraryDetails extends StatelessWidget {
           ),
           const SizedBox(height: 5),
           Text(
-            payloadDataPlanState.triangleFactor.translateValue(localization),
+            factorTranslateValue(
+                payloadDataPlanState.triangleFactor, islanguageCodeEn),
             style: theme.primaryTextTheme.bodyText2.copyWith(
               fontSize: 16,
               fontStyle: FontStyle.italic,
