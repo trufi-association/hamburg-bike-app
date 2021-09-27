@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trufi_core/blocs/payload_data_plan/payload_data_plan_cubit.dart';
-import 'package:trufi_core/l10n/trufi_localization.dart';
 import 'package:trufi_core/models/enums/enums_plan/enums_plan.dart';
 
 class FactorSelector extends StatelessWidget {
@@ -10,7 +9,6 @@ class FactorSelector extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    final localization = TrufiLocalization.of(context);
     final islanguageCodeEn =
         Localizations.localeOf(context).languageCode == "en";
     final payloadDataPlanCubit = context.read<PayloadDataPlanCubit>();
@@ -60,7 +58,7 @@ class FactorSelector extends StatelessWidget {
             return DropdownMenuItem<TriangleFactor>(
               value: value,
               child: Text(
-                _translateValue(value, islanguageCodeEn),
+                factorTranslateValue(value, islanguageCodeEn),
                 style: theme.textTheme.subtitle1.copyWith(
                   fontSize: 18,
                 ),
@@ -71,8 +69,9 @@ class FactorSelector extends StatelessWidget {
       },
     );
   }
+}
 
-  String _translateValue(TriangleFactor triangleFactor, bool islanguageCodeEn) {
+  String factorTranslateValue(TriangleFactor triangleFactor, bool islanguageCodeEn) {
     String translation;
     switch (triangleFactor) {
       case TriangleFactor.lessPublicTransport:
@@ -89,4 +88,3 @@ class FactorSelector extends StatelessWidget {
     }
     return translation;
   }
-}
