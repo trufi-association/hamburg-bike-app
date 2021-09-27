@@ -93,59 +93,42 @@ class _CustomImprintPageState extends State<CustomImprintPage> {
                 Text(
                   isEnglish
                       // TODO translate german
-                      ? "Angaben gemäß § 5 TMG:"
-                      : "Angaben gemäß § 5 TMG:",
+                      ? "Information according to § 5 TMG:\n"
+                          "Trufi Association e.V.\n\n"
+                          "Postal address:\n"
+                          "Rodenbeker Str. 18c\n"
+                          "22935 Hamburg\n\n"
+                          "Contact details:\n"
+                          "Phone: +491634791397\n"
+                          "E-mail: info@trufi-association.org\n\n"
+                          "Represented by:\n"
+                          "Christoph Hanser (Chairman)\n"
+                          "Registered at\n"
+                          "Hamburg Local Court\n"
+                          "VR 24026\n"
+                          "Information about the website\n"
+                          "Information pursuant to § 36 VSBG\n"
+                          "In accordance with § 36 VSBG (Consumer Dispute Settlement Act - Act on Alternative Dispute Resolution in Consumer Matters), the operator of this website declares:\n"
+                          "We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board."
+                      : "Angaben gemäß § 5 TMG:\n"
+                          "Trufi Association e.V.\n\n"
+                          "Postanschrift:\n"
+                          "Rodenbeker Str. 18c\n"
+                          "22935 Hamburg\n\n"
+                          "Kontakt:\n"
+                          "Telefon: +491634791397\n"
+                          "E-Mail: info@trufi-association.org\n\n"
+                          "Vertreten durch:\n"
+                          "Christoph Hanser (Vorsitzender)\n"
+                          "Eingetragen am\n"
+                          "Amtsgericht Hamburg\n"
+                          "VR 24026\n"
+                          "Hinweise zur Website\n"
+                          "Information gemäß § 36 VSBG\n"
+                          "Gemäß § 36 VSBG (Verbraucherstreitbeilegungsgesetz – Gesetz über die alternative Streitbeilegung in Verbrauchersachen) erklärt der Betreiber dieser Website:\n"
+                          "Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
                   style: textTheme,
                 ),
-                spacer,
-                Text(
-                  isEnglish
-                      // TODO translate german
-                      ? "Trufi Association e.V.\nPostanschrift:"
-                      : "Trufi Association e.V.\nPostanschrift:",
-                  style: textTheme,
-                ),
-                SizedBox(height: 10),
-                Text(
-                  isEnglish
-                      // TODO translate german
-                      ? "Rodenbeker Str. 18c\n22935 Hamburg"
-                      : "Rodenbeker Str. 18c\n22935 Hamburg",
-                  style: textTheme,
-                ),
-                spacer,
-                Text(
-                  isEnglish
-                      // TODO translate german
-                      ? "Kontakt:\nTelefon: +491634791397\nE-Mail: info@trufi-association.org"
-                      : "Kontakt:\nTelefon: +491634791397\nE-Mail: info@trufi-association.org",
-                  style: textTheme,
-                ),
-                spacer,
-                Text(
-                  isEnglish
-                      // TODO translate german
-                      ? "Vertreten durch:\nChristoph Hanser (Vorsitzender)\nEingetragen am Amtsgericht Hamburg\nVR 24026"
-                      : "Vertreten durch:\nChristoph Hanser (Vorsitzender)\nEingetragen am Amtsgericht Hamburg\nVR 24026",
-                  style: textTheme,
-                ),
-                spacer,
-                Text(
-                  isEnglish
-                      // TODO translate german
-                      ? "Hinweise zur Website\nInformation gemäß § 36 VSBG, Gemäß § 36 VSBG (Verbraucherstreitbeilegungsgesetz – Gesetz über die alternative Streitbeilegung in Verbrauchersachen) erklärt der Betreiber dieser Website:"
-                      : "Hinweise zur Website\nInformation gemäß § 36 VSBG, Gemäß § 36 VSBG (Verbraucherstreitbeilegungsgesetz – Gesetz über die alternative Streitbeilegung in Verbrauchersachen) erklärt der Betreiber dieser Website:",
-                  style: textTheme,
-                ),
-                spacer,
-                Text(
-                  isEnglish
-                      // TODO translate german
-                      ? "Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen."
-                      : "Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
-                  style: textTheme,
-                ),
-                spacer,
               ],
             ),
           ),

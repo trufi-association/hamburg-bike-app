@@ -26,8 +26,8 @@ class FactorSelector extends StatelessWidget {
             ),
             child: Text(
               islanguageCodeEn
-                  ? "How much cycling do you want to do?"
-                  : "Wie viel Rad möchtest du fahren?",
+                  ? "How much Bicycle do you want?"
+                  : "Wieviel Rad möchtest du?",
               style: theme.textTheme.subtitle1.copyWith(fontSize: 18),
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
@@ -79,10 +79,10 @@ class FactorSelector extends StatelessWidget {
         translation = islanguageCodeEn ? "More bike" : "Mehr Rad";
         break;
       case TriangleFactor.normal:
-        translation = islanguageCodeEn ? "Both" : "Beides";
+        translation = islanguageCodeEn ? "Bike & ÖPNV" : "Rad&ÖPNV";
         break;
       case TriangleFactor.morePublicTransport:
-        translation = islanguageCodeEn ? "More public transport" : "Mehr ÖPNV";
+        translation = islanguageCodeEn ? "More ÖPNV" : "Mehr ÖPNV";
         break;
       case TriangleFactor.unknown:
         translation = "Error";

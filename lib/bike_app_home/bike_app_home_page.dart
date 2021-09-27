@@ -134,7 +134,7 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                 children: [
                   const SizedBox(height: 30),
                   Text(
-                    islanguageCodeEn ? "Hello!" : "Moin!",
+                    islanguageCodeEn ? "Moin!" : "Moin!",
                     style: theme.textTheme.bodyText2.copyWith(
                       fontSize: 34,
                       fontWeight: FontWeight.w600,
@@ -253,7 +253,7 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                     child: Center(
                       child: SizedBox(
                         child: CustomTextButton(
-                          text: islanguageCodeEn ? "SEARCH" : "SUCHEN",
+                          text: islanguageCodeEn ? "SHOW RESULTS" : "SUCHEN",
                           onPressed: () {
                             setState(() {
                               wasValidateForm = true;
