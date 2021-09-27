@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trufi_core/blocs/configuration/configuration_cubit.dart';
 import 'package:trufi_core/blocs/home_page_cubit.dart';
-import 'package:trufi_core/l10n/trufi_localization.dart';
 import 'package:trufi_core/models/trufi_place.dart';
 
 import 'custom_buttons.dart';
@@ -25,7 +24,6 @@ class BAFormFieldsLandscape extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final localization = TrufiLocalization.of(context);
     final homePageCubit = context.read<HomePageCubit>();
     final homePageState = homePageCubit.state;
     final cfg = context.read<ConfigurationCubit>().state;
