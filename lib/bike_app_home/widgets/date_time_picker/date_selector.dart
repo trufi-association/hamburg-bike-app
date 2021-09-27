@@ -25,7 +25,7 @@ class DateSelector extends StatelessWidget {
     final homePageState = context.watch<HomePageCubit>().state;
     final payloadDataPlanCubit = context.watch<PayloadDataPlanCubit>();
     return SizedBox(
-      height: 40,
+      height: 45,
       child: GestureDetector(
         onTap: () async {
           final tempPickedDate = await showDialog<DateTimeConf>(
@@ -49,11 +49,11 @@ class DateSelector extends StatelessWidget {
         },
         child: Column(
           children: [
+            Spacer(),
             Container(
               padding: const EdgeInsets.only(
                 left: 10.0,
                 right: 10.0,
-                top: 10.0,
               ),
               child: Row(
                 children: <Widget>[
@@ -86,7 +86,7 @@ class DateSelector extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(top: 7),
+              padding: const EdgeInsets.only(top: 2),
               child: Container(
                 color: theme.dividerColor,
                 height: 0.6,

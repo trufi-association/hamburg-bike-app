@@ -17,7 +17,7 @@ class BarItineraryDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     final localization = TrufiLocalization.of(context);
     return Container(
-      height: itinerary.futureText(localization) == '' ? 40 : 54,
+      height: itinerary.futureText(localization) == '' ? 46 : 69,
       padding: const EdgeInsets.only(right: 15),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
