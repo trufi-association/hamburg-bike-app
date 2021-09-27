@@ -78,7 +78,11 @@ Configuration setupTrufiConfiguration() {
       const Locale("de"): "Nicht ohne mein Rad",
       const Locale("en"): "Not without my bike"
     }
-    ..tagline = {const Locale("de"): "Hamburg", const Locale("en"): "Hamburg"};
+    ..tagline = {const Locale("de"): "Hamburg", const Locale("en"): "Hamburg"}
+    ..searchItemNoResults = {
+      const Locale("de"): "Keine Route gefunden. Bitte prüfe noch einmal die Schreibweise.",
+      const Locale("en"): "No results found. Please check on your spelling."
+    };
 
   return Configuration(
     customTranslations: customTranslations,
