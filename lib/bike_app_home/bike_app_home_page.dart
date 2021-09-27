@@ -53,6 +53,8 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
     final payloadDataPlanCubit = context.read<PayloadDataPlanCubit>();
     final homePageState = homePageCubit.state;
     final config = context.read<ConfigurationCubit>().state;
+    final islanguageCodeEn =
+        Localizations.localeOf(context).languageCode == "en";
     return BlocListener<HomePageCubit, MapRouteState>(
       listener: (context, state) {
         final hasPlan = state.plan != null && state.plan.error == null;
@@ -95,8 +97,10 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                     ),
                   ),
                   const Spacer(),
-                  const Text(
-                    "Nicht ohne mein Rad",
+                  Text(
+                    islanguageCodeEn
+                        ? "Not without my bike"
+                        : "Nicht ohne mein Rad",
                     style: TextStyle(
                       fontSize: 24,
                       color: Colors.white,
@@ -129,10 +133,9 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                 shrinkWrap: true,
                 padding: const EdgeInsets.symmetric(horizontal: 40),
                 children: [
-                  // TODO translate
                   const SizedBox(height: 30),
                   Text(
-                    "Moin!",
+                    islanguageCodeEn ? "Hello!" : "Moin!",
                     style: theme.textTheme.bodyText2.copyWith(
                       fontSize: 34,
                       fontWeight: FontWeight.w600,
@@ -175,7 +178,7 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                   const FactorSelector(),
                   const SizedBox(height: 40),
                   Text(
-                    "Favoriten",
+                    islanguageCodeEn ? "Favorites" : "Favoriten",
                     style: theme.textTheme.subtitle1.copyWith(fontSize: 18),
                   ),
                   SizedBox(
@@ -270,7 +273,7 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                           child: Center(
                             child: SizedBox(
                               child: CustomTextButton(
-                                text: 'SUCHEN',
+                                text: islanguageCodeEn ? "SEARCH" : "SUCHEN",
                                 onPressed: () {
                                   setState(() {
                                     wasValidateForm = true;

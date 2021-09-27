@@ -97,6 +97,8 @@ class ItineraryDetails extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = context.read<ThemeCubit>().state.bottomBarTheme;
     final localization = TrufiLocalization.of(context);
+    final islanguageCodeEn =
+        Localizations.localeOf(context).languageCode == "en";
     final homePageState = context.read<HomePageCubit>().state;
     final payloadDataPlanState = context.read<PayloadDataPlanCubit>().state;
     final itinerary = planPageController.selectedItinerary;
@@ -107,8 +109,8 @@ class ItineraryDetails extends StatelessWidget {
         children: [
           const SizedBox(height: 10),
           Text(
-            // TODO translate
-            itinerary.firstDeparture()?.headSign ?? "Nur Fahrradroute",
+            itinerary.firstDeparture()?.headSign ??
+                (islanguageCodeEn ? "Bicycle route only" : "Nur Fahrradroute"),
             style: theme.textTheme.bodyText1.copyWith(
               fontSize: 20,
             ),

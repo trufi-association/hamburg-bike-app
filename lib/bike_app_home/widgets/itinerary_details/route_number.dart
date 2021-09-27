@@ -26,6 +26,8 @@ class RouteNumber extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
+    final islanguageCodeEn =
+        Localizations.localeOf(context).languageCode == "en";
     return Row(
       children: [
         Container(
@@ -68,7 +70,7 @@ class RouteNumber extends StatelessWidget {
           child: Text(
             transportMode != TransportMode.bicycle
                 ? (tripHeadSing ?? '')
-                : 'Rad fahrens',
+                : (islanguageCodeEn ? "Riding a bicycle" : "Rad fahrens"),
             style: theme.primaryTextTheme.bodyText1
                 .copyWith(fontSize: 13, color: Colors.grey[700]),
             overflow: TextOverflow.ellipsis,

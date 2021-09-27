@@ -231,8 +231,9 @@ class _DateTimeMapsPickerState extends State<DateTimeMapsPicker>
                                 });
                               },
                               child: Text(
-                                // TODO translate Reset to current time
-                                "Auf aktuelle Uhrzeit zurücksetzen",
+                                languageCode == 'en'
+                                    ? "Reset to current time"
+                                    : "Auf aktuelle Uhrzeit zurücksetzen",
                                 style: theme.textTheme.bodyText2.copyWith(
                                   fontWeight: FontWeight.w500,
                                 ),

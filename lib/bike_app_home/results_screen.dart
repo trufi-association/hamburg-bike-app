@@ -58,6 +58,8 @@ class _ResultsScreenState extends State<ResultsScreen> {
     final isPortrait =
         MediaQuery.of(context).orientation == Orientation.portrait;
     final localization = TrufiLocalization.of(context);
+    final islanguageCodeEn =
+        Localizations.localeOf(context).languageCode == "en";
     final homePageCubit = context.watch<HomePageCubit>();
     final homePageState = homePageCubit.state;
     final config = context.read<ConfigurationCubit>().state;
@@ -117,7 +119,11 @@ class _ResultsScreenState extends State<ResultsScreen> {
                         padding: const EdgeInsets.only(top: 40, bottom: 30),
                         child: Center(
                           child: Text(
-                            "Es gibt ${homePageState?.plan?.itineraries?.length} mögliche Routen",
+                            islanguageCodeEn
+                                ? "There ${homePageState.plan.itineraries.length > 1 ? "are" : "is"} "
+                                    "${homePageState?.plan?.itineraries?.length} possible "
+                                    "${homePageState.plan.itineraries.length > 1 ? "routes" : "route"}"
+                                : "Es gibt ${homePageState?.plan?.itineraries?.length} mögliche Routen",
                             style: theme.textTheme.subtitle1
                                 .copyWith(fontSize: 25),
                           ),
@@ -188,8 +194,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
                                         ),
                                       ),
                                       child: Text(
-                                        // TODO translate
-                                        "MEHR ANZEIGEN",
+                                        islanguageCodeEn ? "MORE SHOWS" : "MEHR ANZEIGEN",
                                         style:
                                             theme.textTheme.subtitle1.copyWith(
                                           fontSize: 18,

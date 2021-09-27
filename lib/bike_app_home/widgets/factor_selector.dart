@@ -11,6 +11,8 @@ class FactorSelector extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final localization = TrufiLocalization.of(context);
+    final islanguageCodeEn =
+        Localizations.localeOf(context).languageCode == "en";
     final payloadDataPlanCubit = context.read<PayloadDataPlanCubit>();
     return BlocBuilder<PayloadDataPlanCubit, PayloadDataPlanState>(
       builder: (context, state) {
@@ -22,9 +24,10 @@ class FactorSelector extends StatelessWidget {
               right: 10.0,
               top: 9.0,
             ),
-            // TODO translate
             child: Text(
-              "Wie viel Rad möchtest du fahren?",
+              islanguageCodeEn
+                  ? "How much cycling do you want to do?"
+                  : "Wie viel Rad möchtest du fahren?",
               style: theme.textTheme.subtitle1.copyWith(fontSize: 18),
               overflow: TextOverflow.ellipsis,
               maxLines: 1,
@@ -57,7 +60,7 @@ class FactorSelector extends StatelessWidget {
             return DropdownMenuItem<TriangleFactor>(
               value: value,
               child: Text(
-                value.translateValue(localization),
+                _translateValue(value, islanguageCodeEn),
                 style: theme.textTheme.subtitle1.copyWith(
                   fontSize: 18,
                 ),
@@ -67,5 +70,23 @@ class FactorSelector extends StatelessWidget {
         );
       },
     );
+  }
+
+  String _translateValue(TriangleFactor triangleFactor, bool islanguageCodeEn) {
+    String translation;
+    switch (triangleFactor) {
+      case TriangleFactor.lessPublicTransport:
+        translation = islanguageCodeEn ? "More bike" : "Mehr Rad";
+        break;
+      case TriangleFactor.normal:
+        translation = islanguageCodeEn ? "Both" : "Beides";
+        break;
+      case TriangleFactor.morePublicTransport:
+        translation = islanguageCodeEn ? "More public transport" : "Mehr ÖPNV";
+        break;
+      case TriangleFactor.unknown:
+        translation = "Error";
+    }
+    return translation;
   }
 }
