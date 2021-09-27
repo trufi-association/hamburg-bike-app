@@ -116,19 +116,18 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
         body: SafeArea(
           child: Stack(
             children: [
-              if (!isPortrait)
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Center(
-                      child: Image.asset(
-                        config.pageBackgroundAssetPath,
-                        fit: BoxFit.fill,
-                        height: 200,
-                      ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Center(
+                    child: Image.asset(
+                      'assets/images/background-image.png',
+                      fit: BoxFit.cover,
+                      height: MediaQuery.of(context).size.height / 2,
                     ),
-                  ],
-                ),
+                  ),
+                ],
+              ),
               ListView(
                 shrinkWrap: true,
                 padding: const EdgeInsets.symmetric(horizontal: 40),
@@ -251,46 +250,24 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                   const SizedBox(height: 50),
                   SizedBox(
                     height: isPortrait ? 220 : 100,
-                    child: Stack(
-                      children: [
-                        if (isPortrait)
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: [
-                              Center(
-                                child: Image.asset(
-                                  config.pageBackgroundAssetPath,
-                                  fit: BoxFit.fill,
-                                  height: 200,
-                                ),
-                              ),
-                            ],
-                          ),
-                        Positioned(
-                          top: 0,
-                          left: 0,
-                          right: 0,
-                          child: Center(
-                            child: SizedBox(
-                              child: CustomTextButton(
-                                text: islanguageCodeEn ? "SEARCH" : "SUCHEN",
-                                onPressed: () {
-                                  setState(() {
-                                    wasValidateForm = true;
-                                  });
-                                  _callFetchPlan(context);
-                                },
-                                color: theme.accentColor,
-                                textStyle: theme.textTheme.headline6.copyWith(
-                                    fontSize: 18, fontWeight: FontWeight.bold),
-                                borderRadius: 5,
-                                height: 50,
-                                width: 200,
-                              ),
-                            ),
-                          ),
+                    child: Center(
+                      child: SizedBox(
+                        child: CustomTextButton(
+                          text: islanguageCodeEn ? "SEARCH" : "SUCHEN",
+                          onPressed: () {
+                            setState(() {
+                              wasValidateForm = true;
+                            });
+                            _callFetchPlan(context);
+                          },
+                          color: theme.accentColor,
+                          textStyle: theme.textTheme.headline6.copyWith(
+                              fontSize: 18, fontWeight: FontWeight.bold),
+                          borderRadius: 5,
+                          height: 50,
+                          width: 200,
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 ],

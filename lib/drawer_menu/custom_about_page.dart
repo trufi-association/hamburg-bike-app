@@ -65,7 +65,7 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                 child: Image.asset(
                   'assets/images/background-image.png',
                   fit: BoxFit.cover,
-                  height: 250,
+                  height: MediaQuery.of(context).size.height / 2,
                 ),
               ),
             ],
