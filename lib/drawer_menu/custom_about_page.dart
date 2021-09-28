@@ -46,16 +46,30 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                     ),
                   ),
                 ),
-                const Spacer(),
-                const Text(
-                  "Nicht ohne mein Rad",
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w800,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          "Nicht ohne mein Rad",
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w800,
+                          ),
+                          textAlign: TextAlign.right,
+                        ),
+                        Text(
+                          "Hamburg",
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Colors.white,
+                          ),
+                          textAlign: TextAlign.right,
+                        ),
+                      ],
+                    ),
                   ),
-                  textAlign: TextAlign.right,
-                ),
               ],
             ),
           ),
