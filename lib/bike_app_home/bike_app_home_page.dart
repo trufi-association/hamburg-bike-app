@@ -303,6 +303,7 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
         await ChooseLocationPage.selectPosition(
       context,
     );
+    if (chooseLocationDetail == null) return;
     final dafaultLocation = TrufiLocation(
       description: chooseLocationDetail.description,
       address: chooseLocationDetail.street,
