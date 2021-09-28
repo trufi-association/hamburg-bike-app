@@ -24,7 +24,6 @@ Future<void> main() async {
       mapTileProviders: [
         MapLayer(MapLayerIds.streets),
         MapLayer(MapLayerIds.light),
-        MapLayer(MapLayerIds.dark),
       ],
       menuItems: menuItems,
       customHomePage: BikeAppHomePage(),
