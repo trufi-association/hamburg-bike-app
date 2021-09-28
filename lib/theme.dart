@@ -19,6 +19,11 @@ final stadtnaviTheme = ThemeData(
   primaryIconTheme: ThemeData.light().primaryIconTheme.copyWith(
         color: const Color(0xFFFDFDFE),
       ),
+  textSelectionTheme: TextSelectionThemeData(
+    selectionColor: const Color(0xFFE1011A).withOpacity(0.5),
+    cursorColor: const Color(0xffE1011A),
+    selectionHandleColor: const Color(0xffE1011A),
+  ),
 );
 
 final bottomBarTheme = ThemeData(

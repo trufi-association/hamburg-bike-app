@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:hamburg_bike_app/bike_app_home/widgets/dialog_confirm_location.dart';
 import 'package:trufi_core/blocs/app_review_cubit.dart';
 import 'package:trufi_core/blocs/configuration/configuration_cubit.dart';
 import 'package:trufi_core/blocs/home_page_cubit.dart';
@@ -96,17 +97,29 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                       ),
                     ),
                   ),
-                  const Spacer(),
-                  Text(
-                    islanguageCodeEn
-                        ? "Not without my bike"
-                        : "Nicht ohne mein Rad",
-                    style: TextStyle(
-                      fontSize: 24,
-                      color: Colors.white,
-                      fontWeight: FontWeight.w800,
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Text(
+                          "Nicht ohne mein Rad",
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Colors.white,
+                            fontWeight: FontWeight.w800,
+                          ),
+                          textAlign: TextAlign.right,
+                        ),
+                        Text(
+                          "Hamburg",
+                          style: TextStyle(
+                            fontSize: 24,
+                            color: Colors.white,
+                          ),
+                          textAlign: TextAlign.right,
+                        ),
+                      ],
                     ),
-                    textAlign: TextAlign.right,
                   ),
                 ],
               ),
@@ -248,28 +261,26 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                     ),
                   ),
                   const SizedBox(height: 50),
-                  SizedBox(
-                    height: isPortrait ? 220 : 100,
-                    child: Center(
-                      child: SizedBox(
-                        child: CustomTextButton(
-                          text: islanguageCodeEn ? "SHOW RESULTS" : "SUCHEN",
-                          onPressed: () {
-                            setState(() {
-                              wasValidateForm = true;
-                            });
-                            _callFetchPlan(context);
-                          },
-                          color: theme.accentColor,
-                          textStyle: theme.textTheme.headline6.copyWith(
-                              fontSize: 18, fontWeight: FontWeight.bold),
-                          borderRadius: 5,
-                          height: 50,
-                          width: 200,
-                        ),
+                  Center(
+                    child: SizedBox(
+                      child: CustomTextButton(
+                        text: islanguageCodeEn ? "SHOW RESULTS" : "SUCHEN",
+                        onPressed: () {
+                          setState(() {
+                            wasValidateForm = true;
+                          });
+                          _callFetchPlan(context);
+                        },
+                        color: theme.accentColor,
+                        textStyle: theme.textTheme.headline6.copyWith(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                        borderRadius: 5,
+                        height: 50,
+                        width: 200,
                       ),
                     ),
                   ),
+                  const SizedBox(height: 50),
                 ],
               ),
               if (config.animations.loading != null && homePageState.isFetching)
@@ -292,15 +303,21 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
         await ChooseLocationPage.selectPosition(
       context,
     );
-    if (chooseLocationDetail != null) {
-      searchLocationsCubit.insertMyPlace(TrufiLocation(
-        description: chooseLocationDetail.description,
-        address: chooseLocationDetail.street,
-        latitude: chooseLocationDetail.location.latitude,
-        longitude: chooseLocationDetail.location.longitude,
-        type: 'saved_place:map',
-      ));
-    }
+    if (chooseLocationDetail == null) return;
+    final dafaultLocation = TrufiLocation(
+      description: chooseLocationDetail.description,
+      address: chooseLocationDetail.street,
+      latitude: chooseLocationDetail.location.latitude,
+      longitude: chooseLocationDetail.location.longitude,
+      type: 'saved_place:map',
+    );
+
+    final TrufiLocation newLocation = await showDialog<TrufiLocation>(
+        context: context,
+        builder: (BuildContext context) {
+          return DialogConfirmLocation(location: dafaultLocation);
+        });
+    if (newLocation != null) searchLocationsCubit.insertMyPlace(newLocation);
   }
 
   Future<void> _callFetchPlan(BuildContext context) async {

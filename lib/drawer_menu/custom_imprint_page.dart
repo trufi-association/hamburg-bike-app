@@ -46,15 +46,29 @@ class _CustomImprintPageState extends State<CustomImprintPage> {
                     ),
                   ),
                 ),
-                const Spacer(),
-                const Text(
-                  "Nicht ohne mein Rad",
-                  style: TextStyle(
-                    fontSize: 24,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w800,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        "Nicht ohne mein Rad",
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w800,
+                        ),
+                        textAlign: TextAlign.right,
+                      ),
+                      Text(
+                        "Hamburg",
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Colors.white,
+                        ),
+                        textAlign: TextAlign.right,
+                      ),
+                    ],
                   ),
-                  textAlign: TextAlign.right,
                 ),
               ],
             ),
@@ -75,61 +89,58 @@ class _CustomImprintPageState extends State<CustomImprintPage> {
               ),
             ],
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40),
-            child: ListView(
-              children: [
-                const SizedBox(height: 40),
-                Text(
-                  isEnglish ? "Imprint" : "Impressum",
-                  style: theme.textTheme.bodyText2.copyWith(
-                    fontSize: 34,
-                    fontWeight: FontWeight.w600,
-                    fontStyle: FontStyle.italic,
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 30),
+              child: ListView(
+                children: [
+                  const SizedBox(height: 40),
+                  Text(
+                    isEnglish ? "Imprint" : "Impressum",
+                    style: theme.textTheme.bodyText2.copyWith(
+                      fontSize: 34,
+                      fontWeight: FontWeight.w600,
+                      fontStyle: FontStyle.italic,
+                    ),
+                    textAlign: TextAlign.start,
                   ),
-                  textAlign: TextAlign.start,
-                ),
-                const SizedBox(height: 24),
-                Text(
-                  isEnglish
-                      // TODO translate german
-                      ? "Information according to § 5 TMG:\n"
-                          "Trufi Association e.V.\n\n"
-                          "Postal address:\n"
-                          "Rodenbeker Str. 18c\n"
-                          "22935 Hamburg\n\n"
-                          "Contact details:\n"
-                          "Phone: +491634791397\n"
-                          "E-mail: info@trufi-association.org\n\n"
-                          "Represented by:\n"
-                          "Christoph Hanser (Chairman)\n"
-                          "Registered at\n"
-                          "Hamburg Local Court\n"
-                          "VR 24026\n"
-                          "Information about the website\n"
-                          "Information pursuant to § 36 VSBG\n"
-                          "In accordance with § 36 VSBG (Consumer Dispute Settlement Act - Act on Alternative Dispute Resolution in Consumer Matters), the operator of this website declares:\n"
-                          "We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board."
-                      : "Angaben gemäß § 5 TMG:\n"
-                          "Trufi Association e.V.\n\n"
-                          "Postanschrift:\n"
-                          "Rodenbeker Str. 18c\n"
-                          "22935 Hamburg\n\n"
-                          "Kontakt:\n"
-                          "Telefon: +491634791397\n"
-                          "E-Mail: info@trufi-association.org\n\n"
-                          "Vertreten durch:\n"
-                          "Christoph Hanser (Vorsitzender)\n"
-                          "Eingetragen am\n"
-                          "Amtsgericht Hamburg\n"
-                          "VR 24026\n"
-                          "Hinweise zur Website\n"
-                          "Information gemäß § 36 VSBG\n"
-                          "Gemäß § 36 VSBG (Verbraucherstreitbeilegungsgesetz – Gesetz über die alternative Streitbeilegung in Verbrauchersachen) erklärt der Betreiber dieser Website:\n"
-                          "Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.",
-                  style: textTheme,
-                ),
-              ],
+                  const SizedBox(height: 24),
+                  Text(
+                    isEnglish
+                        ? "Information according to § 5 TMG:\n\n"
+                            "Trufi Association e.V.\n"
+                            "Postal address:\n"
+                            "Rodenbeker Str. 18c\n"
+                            "22935 Hamburg\n\n"
+                            "Contact details:\n"
+                            "Phone: +491634791397\n"
+                            "E-mail: info@trufi-association.org\n\n"
+                            "Represented by:\n"
+                            "Christoph Hanser (Chairman)\n"
+                            "Registered at Hamburg Local Court\n"
+                            "VR 24026\n\n"
+                            "Information about the website\n"
+                            "Information pursuant to § 36 VSBG In accordance with § 36 VSBG (Consumer Dispute Settlement Act - Act on Alternative Dispute Resolution in Consumer Matters), the operator of this website declares:\n\n"
+                            "We are neither willing nor obliged to participate in dispute resolution proceedings before a consumer arbitration board.\n\n"
+                        : "Angaben gemäß § 5 TMG:\n\n"
+                            "Trufi Association e.V.\n"
+                            "Postanschrift:\n"
+                            "Rodenbeker Str. 18c\n"
+                            "22935 Hamburg\n\n"
+                            "Kontakt:\n"
+                            "Telefon: +491634791397\n"
+                            "E-Mail: info@trufi-association.org\n\n"
+                            "Vertreten durch:\n"
+                            "Christoph Hanser (Vorsitzender)\n"
+                            "Eingetragen am Amtsgericht Hamburg\n"
+                            "VR 24026\n\n"
+                            "Hinweise zur Website\n"
+                            "Information gemäß § 36 VSBG Gemäß § 36 VSBG (Verbraucherstreitbeilegungsgesetz – Gesetz über die alternative Streitbeilegung in Verbrauchersachen) erklärt der Betreiber dieser Website:\n\n"
+                            "Wir sind weder bereit noch verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.\n\n",
+                    style: textTheme,
+                  ),
+                ],
+              ),
             ),
           ),
         ],

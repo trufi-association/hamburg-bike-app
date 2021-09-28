@@ -75,14 +75,6 @@ class _ResultsScreenState extends State<ResultsScreen> {
             await Navigator.maybePop(context);
           },
         ),
-        actions: const [
-          Icon(
-            Icons.update,
-            color: Colors.white,
-            size: 30,
-          ),
-          SizedBox(width: 20)
-        ],
         title: Row(
           children: [
             Flexible(

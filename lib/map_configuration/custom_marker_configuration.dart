@@ -28,10 +28,8 @@ class CustomMarkerConfiguration implements MarkerConfiguration {
       anchorPos: AnchorPos.align(AnchorAlign.center),
       builder: (context) {
         return Container(
-          decoration: BoxDecoration(
-            color: Color(0xff333333),
-            shape: BoxShape.circle
-          ),
+          decoration:
+              BoxDecoration(color: Color(0xff333333), shape: BoxShape.circle),
           child: Icon(
             Icons.directions_bike,
             color: Colors.white,
@@ -48,17 +46,15 @@ class CustomMarkerConfiguration implements MarkerConfiguration {
       point: point,
       width: 23.0,
       height: 23.0,
-      anchorPos: AnchorPos.align(AnchorAlign.center),
+      anchorPos: AnchorPos.align(AnchorAlign.top),
       builder: (context) {
         return Container(
-          decoration: BoxDecoration(
-            color: Color(0xff333333),
-            shape: BoxShape.circle
-          ),
-          child: Icon(
-            Icons.directions_bike,
-            color: Colors.white,
-            size: 14,
+          child: Stack(
+            alignment: AlignmentDirectional.center,
+            children: [
+              Container(width: 10, height: 10, color: Colors.white),
+              const Icon(Icons.location_on, size: 30, color: Color(0xff333333))
+            ],
           ),
         );
       },
@@ -96,5 +92,4 @@ class CustomMarkerConfiguration implements MarkerConfiguration {
   MarkerLayerOptions buildYourLocationMarkerLayerOptions(LatLng point) {
     return MarkerLayerOptions(markers: [buildYourLocationMarker(point)]);
   }
-
 }
