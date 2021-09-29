@@ -149,7 +149,7 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                                               " who use bikes as their main means of transport. "
                                               " Defy long trips and rainy days by using public "
                                               " transport without abandoning your bike! ITS World Congress "
-                                              " and the Hamburg Transport Association (HVV) chose "
+                                              " and the Hamburg Transport Association (hvv GmbH) chose "
                                               " Trufi Association to create a first-of-its-kind bike app, "
                                               " and voilà, here it is: "
                                           : " vereint Fahrrad und ÖPNV in "
@@ -159,7 +159,7 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                                               "Regentagen mit der Nutzung der ÖPNV die Stirn "
                                               "bieten ohne auf dein Rad zu verzichten. Deshalb "
                                               "haben wir von Trufi Association im Auftrag der ITS "
-                                              "und der HVV Nägel mit Köpfen gemacht und voilà: "
+                                              "und der hvv GmbH Nägel mit Köpfen gemacht und voilà: "
                                               "Hier ist sie die ",
                                     ),
                                     TextSpan(
