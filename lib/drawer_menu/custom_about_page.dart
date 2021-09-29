@@ -46,30 +46,30 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                     ),
                   ),
                 ),
-                  Expanded(
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        Text(
-                          "Nicht ohne mein Rad",
-                          style: TextStyle(
-                            fontSize: 24,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w800,
-                          ),
-                          textAlign: TextAlign.right,
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        "Nicht ohne mein Rad",
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w800,
                         ),
-                        Text(
-                          "Hamburg",
-                          style: TextStyle(
-                            fontSize: 24,
-                            color: Colors.white,
-                          ),
-                          textAlign: TextAlign.right,
+                        textAlign: TextAlign.right,
+                      ),
+                      Text(
+                        "Hamburg",
+                        style: TextStyle(
+                          fontSize: 24,
+                          color: Colors.white,
                         ),
-                      ],
-                    ),
+                        textAlign: TextAlign.right,
+                      ),
+                    ],
                   ),
+                ),
               ],
             ),
           ),
@@ -84,7 +84,7 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                 child: Image.asset(
                   'assets/images/background-image.png',
                   fit: BoxFit.cover,
-                  height: MediaQuery.of(context).size.height / 2,
+                  height: MediaQuery.of(context).size.height / 3,
                 ),
               ),
             ],
@@ -129,68 +129,69 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                           ),
                           children: [
                             RichText(
-                              text:
-                                  TextSpan(style: textTheme, children: <TextSpan>[
-                                TextSpan(
-                                  text: isEnglish
-                                      ? "Dear Bike and Public Transport User!\n\n"
-                                      : "Lieber Fahrrad- und ÖPNV-Nutzer!\n\n",
-                                ),
-                                TextSpan(
-                                  text: "Nicht ohne mein Rad",
-                                  style: textTheme.copyWith(
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                TextSpan(
-                                  text: isEnglish
-                                      ? " unites bicycle and public transport"
-                                          " journeys in Hamburg, making life easier for people"
-                                          " who use bikes as their main means of transport. "
-                                          " Defy long trips and rainy days by using public "
-                                          " transport without abandoning your bike! ITS World Congress "
-                                          " and the Hamburg Transport Association (HVV) chose "
-                                          " Trufi Association to create a first-of-its-kind bike app, "
-                                          " and voilà, here it is: "
-                                      : " vereint Fahrrad und ÖPNV in "
-                                          "Hamburg und macht das Leben für Menschen, "
-                                          "die das Fahrrad als Hauptverkehrsmittel nutzen, "
-                                          "einfacher. In Zukunft kannst du langen Wegen oder "
-                                          "Regentagen mit der Nutzung der ÖPNV die Stirn "
-                                          "bieten ohne auf dein Rad zu verzichten. Deshalb "
-                                          "haben wir von Trufi Association im Auftrag der ITS "
-                                          "und der HVV Nägel mit Köpfen gemacht und voilà: "
-                                          "Hier ist sie die ",
-                                ),
-                                TextSpan(
-                                  text: isEnglish
-                                      ? "Nicht ohne mein Rad."
-                                      : "„Nicht ohne mein Rad App“",
-                                  style: textTheme.copyWith(
-                                      fontWeight: FontWeight.bold),
-                                ),
-                                TextSpan(
-                                  text: isEnglish
-                                      ? "!\n\nTrufi Association is an international NGO that promotes"
-                                          "easier access to public transport. Official maps, apps,"
-                                          "and schedules don’t provide all the routes, or they"
-                                          "simply don’t exist in many cities. We fill in the"
-                                          "gaps – and sometimes even map the routes from scratch."
-                                          "Our apps help everyone find the best way to get from "
-                                          "Point A to Point B within their cities. Well-designed "
-                                          "mobility contributes to greater sustainability, cleaner"
-                                          "air and better quality of life.\n"
-                                      : "\n\nTrufi Association ist eine internationale NGO, "
-                                          "die sich für einen leichteren Zugang zu öffentlichen "
-                                          "Verkehrsmitteln einsetzt. Offizielle Karten, Apps "
-                                          "und Fahrpläne enthalten oft nicht alle Routen. In "
-                                          "vielen Städten dieser Welt gibt es sogar gar keine "
-                                          "Fahrpläne. Wir füllen Lücken oder zeichnen Routen "
-                                          "von Grund auf neu auf. Unsere Apps helfen jedem, den "
-                                          "besten Weg zu finden, um in seiner Stadt von A nach B "
-                                          "zu kommen. Gut durchdachte Mobilität trägt zu mehr "
-                                          "Nachhaltigkeit, sauberer Luft und mehr Lebensqualität bei.\n",
-                                ),
-                              ]),
+                              text: TextSpan(
+                                  style: textTheme,
+                                  children: <TextSpan>[
+                                    TextSpan(
+                                      text: isEnglish
+                                          ? "Dear Bike and Public Transport User!\n\n"
+                                          : "Lieber Fahrrad- und ÖPNV-Nutzer!\n\n",
+                                    ),
+                                    TextSpan(
+                                      text: "Nicht ohne mein Rad",
+                                      style: textTheme.copyWith(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    TextSpan(
+                                      text: isEnglish
+                                          ? " unites bicycle and public transport"
+                                              " journeys in Hamburg, making life easier for people"
+                                              " who use bikes as their main means of transport. "
+                                              " Defy long trips and rainy days by using public "
+                                              " transport without abandoning your bike! ITS World Congress "
+                                              " and the Hamburg Transport Association (HVV) chose "
+                                              " Trufi Association to create a first-of-its-kind bike app, "
+                                              " and voilà, here it is: "
+                                          : " vereint Fahrrad und ÖPNV in "
+                                              "Hamburg und macht das Leben für Menschen, "
+                                              "die das Fahrrad als Hauptverkehrsmittel nutzen, "
+                                              "einfacher. In Zukunft kannst du langen Wegen oder "
+                                              "Regentagen mit der Nutzung der ÖPNV die Stirn "
+                                              "bieten ohne auf dein Rad zu verzichten. Deshalb "
+                                              "haben wir von Trufi Association im Auftrag der ITS "
+                                              "und der HVV Nägel mit Köpfen gemacht und voilà: "
+                                              "Hier ist sie die ",
+                                    ),
+                                    TextSpan(
+                                      text: isEnglish
+                                          ? "Nicht ohne mein Rad."
+                                          : "„Nicht ohne mein Rad App“",
+                                      style: textTheme.copyWith(
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    TextSpan(
+                                      text: isEnglish
+                                          ? "!\n\nTrufi Association is an international NGO that promotes"
+                                              "easier access to public transport. Official maps, apps,"
+                                              "and schedules don’t provide all the routes, or they"
+                                              "simply don’t exist in many cities. We fill in the"
+                                              "gaps – and sometimes even map the routes from scratch."
+                                              "Our apps help everyone find the best way to get from "
+                                              "Point A to Point B within their cities. Well-designed "
+                                              "mobility contributes to greater sustainability, cleaner"
+                                              "air and better quality of life.\n"
+                                          : "\n\nTrufi Association ist eine internationale NGO, "
+                                              "die sich für einen leichteren Zugang zu öffentlichen "
+                                              "Verkehrsmitteln einsetzt. Offizielle Karten, Apps "
+                                              "und Fahrpläne enthalten oft nicht alle Routen. In "
+                                              "vielen Städten dieser Welt gibt es sogar gar keine "
+                                              "Fahrpläne. Wir füllen Lücken oder zeichnen Routen "
+                                              "von Grund auf neu auf. Unsere Apps helfen jedem, den "
+                                              "besten Weg zu finden, um in seiner Stadt von A nach B "
+                                              "zu kommen. Gut durchdachte Mobilität trägt zu mehr "
+                                              "Nachhaltigkeit, sauberer Luft und mehr Lebensqualität bei.\n",
+                                    ),
+                                  ]),
                             ),
                           ],
                           backgroundColor: Colors.white,

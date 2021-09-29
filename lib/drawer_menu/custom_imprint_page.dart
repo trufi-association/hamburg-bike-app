@@ -84,7 +84,7 @@ class _CustomImprintPageState extends State<CustomImprintPage> {
                 child: Image.asset(
                   'assets/images/background-image.png',
                   fit: BoxFit.cover,
-                  height: MediaQuery.of(context).size.height / 2,
+                  height: MediaQuery.of(context).size.height / 3,
                 ),
               ),
             ],
