@@ -225,7 +225,7 @@ final List<List<MenuItem>> menuItems = [
             },
             items: <SocialMediaItem>[
               YoutubeSocialMedia(
-                "https://www.youtube.com/channel/UCL_K2RPU0pxV5VYw0Aj_PUA",
+                "https://www.youtube.com/channel/UCe5cvHdDNOyVfUyy0X8-M8Q",
               ),
               FacebookSocialMedia("https://www.facebook.com/TrufiAssoc"),
               TwitterSocialMedia("https://twitter.com/TrufiAssoc"),
