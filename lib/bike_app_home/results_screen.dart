@@ -216,7 +216,10 @@ class _ResultsScreenState extends State<ResultsScreen> {
                                 : ((4 - homePageState.plan.itineraries.length) *
                                         110.0) -
                                     80,
-                          )
+                          ),
+                        SizedBox(
+                          height: 200,
+                        ),
                       ],
                     ),
                 ],
