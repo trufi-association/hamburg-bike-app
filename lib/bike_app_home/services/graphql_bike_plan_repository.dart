@@ -114,20 +114,15 @@ class GraphqlBikePlanRepository {
         date.weekday == DateTime.saturday || date.weekday == DateTime.sunday;
     List<Map<String, String>> bikeAndPublicModes = [
       {'mode': TransportMode.bicycle.name},
-      {'mode': TransportMode.transit.name},
     ];
-    if (isWeekend) {
-      if (date.hour > 15 && date.hour < 19) {
-        bikeAndPublicModes = [
-          {'mode': TransportMode.bicycle.name},
-        ];
+    if (!isWeekend) {
+      if (date.hour <= 6 ||
+          date.hour >= 9 && date.hour <= 16 ||
+          date.hour >= 18) {
+        bikeAndPublicModes.add({'mode': TransportMode.transit.name});
       }
     } else {
-      if (date.hour > 5 && date.hour < 10) {
-        bikeAndPublicModes = [
-          {'mode': TransportMode.bicycle.name},
-        ];
-      }
+      bikeAndPublicModes.add({'mode': TransportMode.transit.name});
     }
     return bikeAndPublicModes;
   }
