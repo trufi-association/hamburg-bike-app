@@ -6,15 +6,13 @@ import 'package:trufi_core/models/map_tile_provider.dart';
 enum MapLayerIds {
   streets,
   light,
-  dark,
 }
 
 extension LayerIdsToString on MapLayerIds {
   String enumToString() {
     final Map<MapLayerIds, String> enumStrings = {
-      MapLayerIds.streets: "Streets",
-      MapLayerIds.light: "Light",
-      MapLayerIds.dark: "Dark",
+      MapLayerIds.streets: "osm liberty",
+      MapLayerIds.light: "dark matter",
     };
 
     return enumStrings[this];
@@ -22,9 +20,8 @@ extension LayerIdsToString on MapLayerIds {
 
   String enumToStringDE() {
     final Map<MapLayerIds, String> enumStrings = {
-      MapLayerIds.streets: "Straßen",
-      MapLayerIds.light: "Licht",
-      MapLayerIds.dark: "Dunkel",
+      MapLayerIds.streets: "osm liberty",
+      MapLayerIds.light: "dark matter",
     };
 
     return enumStrings[this];
@@ -32,9 +29,8 @@ extension LayerIdsToString on MapLayerIds {
 
   String enumToStringEN() {
     final Map<MapLayerIds, String> enumStrings = {
-      MapLayerIds.streets: "Streets",
-      MapLayerIds.light: "Light",
-      MapLayerIds.dark: "Dark",
+      MapLayerIds.streets: "osm liberty",
+      MapLayerIds.light: "dark matter",
     };
 
     return enumStrings[this];
@@ -45,29 +41,19 @@ Map<MapLayerIds, List<LayerOptions>> mapLayerOptions = {
   MapLayerIds.streets: [
     TileLayerOptions(
       urlTemplate:
-          "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}@3x.png",
-      subdomains: ["a", "b", "c"],
+          "https://api.trufi.app/tileserver-hamburg/styles/trufi-liberty/{z}/{x}/{y}{r}.png",
     ),
   ],
   MapLayerIds.light: [
     TileLayerOptions(
       urlTemplate:
-          "https://{s}.basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}{r}@3x.png",
-      subdomains: ["a", "b", "c"],
-    ),
-  ],
-  MapLayerIds.dark: [
-    TileLayerOptions(
-      urlTemplate:
-          "https://{s}.basemaps.cartocdn.com/rastertiles/dark_all/{z}/{x}/{y}{r}@3x.png",
-      subdomains: ["a", "b", "c"],
+          "https://api.trufi.app/tileserver-hamburg/styles/trufi-dark/{z}/{x}/{y}{r}.png",
     ),
   ],
 };
 Map<MapLayerIds, String> layerImage = {
   MapLayerIds.streets: "assets/images/maptype-streets.png",
   MapLayerIds.light: "assets/images/maptype-satellite.png",
-  MapLayerIds.dark: "assets/images/maptype-terrain.png",
 };
 
 class MapLayer extends MapTileProvider {
