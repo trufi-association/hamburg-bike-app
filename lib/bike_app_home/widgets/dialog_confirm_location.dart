@@ -34,7 +34,6 @@ class _DialogConfirmLocationState extends State<DialogConfirmLocation> {
       child: SingleChildScrollView(
         child: AlertDialog(
           title: Text(
-            // TODO translation
             localization.localeName == 'de'
                 ? "Bestätigen Sie die Erstellung eines neuen Ortes"
                 : "Confirm the creation of a new place",
@@ -89,7 +88,6 @@ class _DialogConfirmLocationState extends State<DialogConfirmLocation> {
                 ),
                 const SizedBox(height: 10),
                 SizedBox(
-                  width: 250,
                   height: 40,
                   child: GridView.builder(
                     itemCount: listIconsPlace.length,
@@ -154,9 +152,7 @@ class _DialogConfirmLocationState extends State<DialogConfirmLocation> {
                 onPrimary: theme.primaryColor,
               ),
               child: Text(
-                localization.localeName == 'de'
-                    ? "BESTÄTIGEN SIE"
-                    : "CONFIRM",
+                localization.localeName == 'de' ? "BESTÄTIGEN SIE" : "CONFIRM",
                 style: TextStyle(color: theme.primaryColor),
               ),
             ),
