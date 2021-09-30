@@ -172,6 +172,10 @@ class _ResultsScreenState extends State<ResultsScreen> {
                                           isFetchEarlier: false);
                                     },
                                     style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all<Color>(
+                                        const Color(0xffEAEAEA),
+                                      ),
                                       padding:
                                           MaterialStateProperty.all<EdgeInsets>(
                                               const EdgeInsets.symmetric(
