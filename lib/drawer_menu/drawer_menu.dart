@@ -35,15 +35,7 @@ class CustomAppShareButtonMenu extends MenuItem {
                 : "App weiterempfehlen",
           ),
           onClick: (context, _) {
-            // TODO implement share app
-            // final currentLocale = Localizations.localeOf(context).languageCode;
-            // Share.share(currentLocale == "en"
-            //     ? """
-            // Download the stadtnavi app, the public transport app for Herrenberg and its surroundings on https://herrenberg.stadtnavi.de/
-            // """
-            //     : """
-            // Hol' dir die stadtnavi App für den öffentlichen Nahverkehr in Herrenberg und Umgebung auf https://herrenberg.stadtnavi.de/
-            // """);
+            launch("https://notwithoutmybikehamburg.trufi.app");
           },
         );
 }

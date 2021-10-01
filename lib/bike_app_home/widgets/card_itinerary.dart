@@ -4,7 +4,6 @@ import 'package:trufi_core/blocs/payload_data_plan/payload_data_plan_cubit.dart'
 import 'package:trufi_core/entities/plan_entity/plan_entity.dart';
 import 'package:trufi_core/entities/plan_entity/utils/time_utils.dart';
 import 'package:trufi_core/l10n/trufi_localization.dart';
-import 'package:trufi_core/models/enums/enums_plan/enums_plan.dart';
 
 import 'factor_selector.dart';
 

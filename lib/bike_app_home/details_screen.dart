@@ -4,7 +4,6 @@ import 'package:trufi_core/blocs/configuration/configuration_cubit.dart';
 import 'package:trufi_core/blocs/home_page_cubit.dart';
 import 'package:trufi_core/blocs/payload_data_plan/payload_data_plan_cubit.dart';
 import 'package:trufi_core/blocs/theme_bloc.dart';
-import 'package:trufi_core/models/enums/enums_plan/enums_plan.dart';
 import 'package:trufi_core/pages/home/plan_map/plan.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
