@@ -1,36 +1,25 @@
+import 'package:flutter/material.dart';
+import 'package:app_review/app_review.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:trufi_core/blocs/configuration/configuration_cubit.dart';
 import 'package:trufi_core/blocs/preferences/preferences_cubit.dart';
 import 'package:trufi_core/l10n/trufi_localization.dart';
 import 'package:trufi_core/models/menu/default_pages_menu.dart';
 import 'package:trufi_core/models/menu/menu_item.dart';
-import 'package:flutter/material.dart';
 import 'package:trufi_core/models/menu/social_media/social_media_item.dart';
 import 'package:trufi_core/models/menu/social_media/facebook_social_media.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:trufi_core/models/menu/social_media/twitter_social_media.dart';
 import 'package:trufi_core/pages/feedback.dart';
 import 'package:trufi_core/pages/home/home_page.dart';
 import 'package:trufi_core/pages/saved_places/saved_places.dart';
 import 'package:trufi_core/models/menu/default_item_menu.dart';
-import 'package:app_review/app_review.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:trufi_core/widgets/trufi_drawer.dart';
 
 import 'custom_about_page.dart';
 import 'custom_imprint_page.dart';
-
-class IHrStart extends MenuItem {
-  IHrStart()
-      : super(
-          selectedIcon: (context) => Container(),
-          notSelectedIcon: (context) => Container(),
-          name: (context) => MenuItem.buildName(
-            context,
-            "Ihr Start",
-          ),
-          onClick: (context, _) {},
-        );
-}
 
 class CustomAppShareButtonMenu extends MenuItem {
   CustomAppShareButtonMenu()
@@ -186,7 +175,26 @@ final List<List<MenuItem>> menuItems = [
             ? "Favourites"
             : localization.menuYourPlaces;
       },
-    )
+    ),
+    SimpleMenuItem(
+      buildIcon: (context) => Container(
+        padding: const EdgeInsets.symmetric(horizontal: 2),
+        child: const Icon(
+          Icons.directions_bike,
+          color: Colors.grey,
+          size: 19,
+        ),
+      ),
+      name: (context) => MenuItem.buildName(
+        context,
+        Localizations.localeOf(context).languageCode == "en"
+            ? "FAQ Bike in public transport"
+            : "FAQ Rad in der Bahn",
+      ),
+      onClick: () {
+        launch("https://www.hvv.de/de/service/fragen-und-antworten/fahrrad");
+      },
+    ),
   ],
   [
     MenuPageItem(

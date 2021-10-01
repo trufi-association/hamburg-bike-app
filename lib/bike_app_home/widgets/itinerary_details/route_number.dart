@@ -30,29 +30,21 @@ class RouteNumber extends StatelessWidget {
         Localizations.localeOf(context).languageCode == "en";
     return Row(
       children: [
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-          decoration: BoxDecoration(
-            color: transportMode == TransportMode.bicycle
-                ? Colors.transparent
-                : (backgroundColor ?? Colors.black),
-            borderRadius: BorderRadius.circular(5),
-          ),
-          child: Row(
-            children: [
-              if (icon != null)
-                SizedBox(
-                  height: 20,
-                  width: 20,
-                  child: icon,
-                )
-              else if (transportMode == TransportMode.bicycle)
-                SizedBox(
-                  height: 20,
-                  width: 20,
-                  child: transportMode.getImage(color: transportMode.color),
-                ),
-              if (transportMode != TransportMode.bicycle)
+        if (transportMode != TransportMode.bicycle)
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+            decoration: BoxDecoration(
+              color: backgroundColor ?? Colors.black,
+              borderRadius: BorderRadius.circular(5),
+            ),
+            child: Row(
+              children: [
+                if (icon != null)
+                  SizedBox(
+                    height: 20,
+                    width: 20,
+                    child: icon,
+                  ),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 2),
                   child: Text(
@@ -62,10 +54,10 @@ class RouteNumber extends StatelessWidget {
                     ),
                   ),
                 ),
-            ],
+              ],
+            ),
           ),
-        ),
-        const SizedBox(width: 5),
+        if (transportMode != TransportMode.bicycle) const SizedBox(width: 5),
         Flexible(
           child: Text(
             transportMode != TransportMode.bicycle

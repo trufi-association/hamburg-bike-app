@@ -27,7 +27,7 @@ dependencies:
   trufi_core:
     git:
       url: https://github.com/trufi-association/trufi-core.git
-      ref: 9ccf05c5bb97e8174b7c03c01657beadb149c2fa
+      ref: d57ce16fa4a23e7b648a4020d43bae8c64ca37ba
 
 dev_dependencies:
   flutter_test:
