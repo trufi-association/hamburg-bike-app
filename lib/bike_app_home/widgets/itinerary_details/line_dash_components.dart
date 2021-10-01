@@ -102,6 +102,10 @@ class TransportDash extends StatelessWidget {
               distance: leg.distanceString(localization),
             ),
           ),
+          leading: Icon(
+            leg.transportMode.icon,
+            size: 20,
+          ),
         ),
         if (isNextTransport)
           DashLinePlace(
@@ -200,6 +204,7 @@ class WaitDash extends StatelessWidget {
 
 class SeparatorPlace extends StatelessWidget {
   final Widget child;
+  final Widget leading;
   final Widget separator;
   final Color color;
   final double height;
@@ -207,6 +212,7 @@ class SeparatorPlace extends StatelessWidget {
   const SeparatorPlace({
     Key key,
     @required this.child,
+    this.leading,
     this.color,
     this.separator,
     this.height,
@@ -218,7 +224,20 @@ class SeparatorPlace extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          const SizedBox(width: 52),
+          if (leading != null)
+            SizedBox(
+              width: 52,
+              child: Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10),
+                  child: leading,
+                ),
+              ),
+            )
+          else
+            const SizedBox(
+              width: 52,
+            ),
           if (separator != null)
             Column(
               children: [
