@@ -90,10 +90,10 @@ Configuration setupTrufiConfiguration() {
     animations: AnimationConfiguration(),
     feedbackDefinition: FeedbackDefinition(
       FeedBackType.email,
-      "info@trufi-association.org",
+      "nichtohnemeinrad-hamburg@trufi-association.org",
     ),
     serverType: ServerType.graphQLServer,
-    teamInformationEmail: "info@trufi-association.org",
+    teamInformationEmail: "nichtohnemeinrad-hamburg@trufi-association.org",
     attribution: attribution,
     map: map,
     urls: urls,
