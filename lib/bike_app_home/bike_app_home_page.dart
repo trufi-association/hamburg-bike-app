@@ -190,7 +190,7 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                   const FactorSelector(),
                   const SizedBox(height: 40),
                   Text(
-                    islanguageCodeEn ? "Favorites" : "Favoriten",
+                    islanguageCodeEn ? "Favourites" : "Favoriten",
                     style: theme.textTheme.subtitle1.copyWith(fontSize: 18),
                   ),
                   SizedBox(

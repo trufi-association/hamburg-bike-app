@@ -124,7 +124,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
                         child: Text(
                           islanguageCodeEn
                               ? "We found ${homePageState?.plan?.itineraries?.length} "
-                                  "${homePageState.plan.itineraries.length > 1 ? "routes" : "route"}  for you"
+                                  "${homePageState.plan.itineraries.length > 1 ? "routes" : "route"} for you"
                               : "Es gibt ${homePageState?.plan?.itineraries?.length} mögliche Routen",
                           style:
                               theme.textTheme.subtitle1.copyWith(fontSize: 25),

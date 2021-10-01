@@ -138,21 +138,21 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                                           : "Lieber Fahrrad- und ÖPNV-Nutzer!\n\n",
                                     ),
                                     TextSpan(
-                                      text: "Nicht ohne mein Rad",
+                                      text: "Nicht ohne mein Rad ",
                                       style: textTheme.copyWith(
                                           fontWeight: FontWeight.bold),
                                     ),
                                     TextSpan(
                                       text: isEnglish
-                                          ? " unites bicycle and public transport"
-                                              " journeys in Hamburg, making life easier for people"
-                                              " who use bikes as their main means of transport. "
-                                              " Defy long trips and rainy days by using public "
-                                              " transport without abandoning your bike! ITS World Congress "
-                                              " and the Hamburg Transport Association (hvv GmbH) chose "
-                                              " Trufi Association to create a first-of-its-kind bike app, "
-                                              " and voilà, here it is: "
-                                          : " vereint Fahrrad und ÖPNV in "
+                                          ? "unites bicycle and public transport "
+                                              "journeys in Hamburg, making life easier for people "
+                                              "who use bikes as their main means of transport. "
+                                              "Defy long trips and rainy days by using public "
+                                              "transport without abandoning your bike! ITS World Congress "
+                                              "and the Hamburg Transport Association (hvv GmbH) chose "
+                                              "Trufi Association to create a first-of-its-kind bike app, "
+                                              "and voilà, here it is: "
+                                          : "vereint Fahrrad und ÖPNV in "
                                               "Hamburg und macht das Leben für Menschen, "
                                               "die das Fahrrad als Hauptverkehrsmittel nutzen, "
                                               "einfacher. In Zukunft kannst du langen Wegen oder "
@@ -160,25 +160,25 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                                               "bieten ohne auf dein Rad zu verzichten. Deshalb "
                                               "haben wir von Trufi Association im Auftrag der ITS "
                                               "und der hvv GmbH Nägel mit Köpfen gemacht und voilà: "
-                                              "Hier ist sie die ",
+                                              "Hier ist ",
                                     ),
                                     TextSpan(
                                       text: isEnglish
-                                          ? "Nicht ohne mein Rad."
-                                          : "„Nicht ohne mein Rad App“",
+                                          ? "Nicht ohne mein Rad Hamburg!"
+                                          : "Nicht ohne mein Rad Hamburg!",
                                       style: textTheme.copyWith(
                                           fontWeight: FontWeight.bold),
                                     ),
                                     TextSpan(
                                       text: isEnglish
-                                          ? "!\n\nTrufi Association is an international NGO that promotes"
-                                              "easier access to public transport. Official maps, apps,"
-                                              "and schedules don’t provide all the routes, or they"
-                                              "simply don’t exist in many cities. We fill in the"
-                                              "gaps – and sometimes even map the routes from scratch."
+                                          ? "\n\nTrufi Association is an international NGO that promotes "
+                                              "easier access to public transport. Official maps, apps, "
+                                              "and schedules don’t provide all the routes, or they "
+                                              "simply don’t exist in many cities. We fill in the "
+                                              "gaps – and sometimes even map the routes from scratch. "
                                               "Our apps help everyone find the best way to get from "
                                               "Point A to Point B within their cities. Well-designed "
-                                              "mobility contributes to greater sustainability, cleaner"
+                                              "mobility contributes to greater sustainability, cleaner "
                                               "air and better quality of life.\n"
                                           : "\n\nTrufi Association ist eine internationale NGO, "
                                               "die sich für einen leichteren Zugang zu öffentlichen "
