@@ -80,8 +80,17 @@ Configuration setupTrufiConfiguration() {
     }
     ..tagline = {const Locale("de"): "Hamburg", const Locale("en"): "Hamburg"}
     ..searchItemNoResults = {
-      const Locale("de"): "Keine Route gefunden. Bitte prüfe noch einmal die Schreibweise.",
+      const Locale("de"):
+          "Keine Route gefunden. Bitte prüfe noch einmal die Schreibweise.",
       const Locale("en"): "No results found. Please check on your spelling."
+    }
+    ..searchTitleFavorites = {
+      const Locale("de"): "Favoriten",
+      const Locale("en"): "Favourites"
+    }
+    ..commonFavoritePlaces = {
+      const Locale("de"): "Lieblingsorte",
+      const Locale("en"): "Favourite places"
     };
 
   return Configuration(
@@ -90,10 +99,10 @@ Configuration setupTrufiConfiguration() {
     animations: AnimationConfiguration(),
     feedbackDefinition: FeedbackDefinition(
       FeedBackType.email,
-      "info@trufi-association.org",
+      "nichtohnemeinrad-hamburg@trufi-association.org",
     ),
     serverType: ServerType.graphQLServer,
-    teamInformationEmail: "info@trufi-association.org",
+    teamInformationEmail: "nichtohnemeinrad-hamburg@trufi-association.org",
     attribution: attribution,
     map: map,
     urls: urls,
