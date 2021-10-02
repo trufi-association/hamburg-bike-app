@@ -224,20 +224,11 @@ class SeparatorPlace extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          if (leading != null)
-            SizedBox(
-              width: 52,
-              child: Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10),
-                  child: leading,
-                ),
-              ),
-            )
-          else
-            const SizedBox(
-              width: 52,
-            ),
+          Container(
+            width: 52,
+            height: 52,
+            child: (leading != null) ? leading : Container(),
+          ),
           if (separator != null)
             Column(
               children: [
