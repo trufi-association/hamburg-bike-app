@@ -226,8 +226,14 @@ class SeparatorPlace extends StatelessWidget {
         children: [
           Container(
             width: 52,
-            height: 52,
-            child: (leading != null) ? leading : Container(),
+            child: (leading != null)
+                ? Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      leading,
+                    ],
+                  )
+                : Container(),
           ),
           if (separator != null)
             Column(
