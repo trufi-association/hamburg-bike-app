@@ -17,10 +17,13 @@ import 'package:trufi_core/pages/home/home_page.dart';
 import 'package:trufi_core/pages/saved_places/saved_places.dart';
 import 'package:trufi_core/models/menu/default_item_menu.dart';
 import 'package:trufi_core/widgets/trufi_drawer.dart';
+import 'package:share/share.dart';
 
 import 'custom_about_page.dart';
 import 'custom_imprint_page.dart';
 
+// const Locale("de"): "Nicht ohne mein Rad",
+//       const Locale("en"): "Not without my Bike"
 class CustomAppShareButtonMenu extends MenuItem {
   CustomAppShareButtonMenu()
       : super(
@@ -35,7 +38,14 @@ class CustomAppShareButtonMenu extends MenuItem {
                 : "App weiterempfehlen",
           ),
           onClick: (context, _) {
-            launch("https://notwithoutmybikehamburg.trufi.app");
+            final currentLocale = Localizations.localeOf(context).languageCode;
+            Share.share(currentLocale == "en"
+                ? """
+            Download the "Not without my Bike" app, the public transport app for Hamburg and its surroundings on https://bit.ly/3iopoyF
+            """
+                : """
+            Hol' dir die "Nicht ohne mein Rad" App für den öffentlichen Nahverkehr in Hamburg und Umgebung auf https://bit.ly/3iopoyF
+            """);
           },
         );
 }
