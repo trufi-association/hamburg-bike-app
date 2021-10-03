@@ -79,6 +79,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
                 child: Text(
               homePageState.fromPlace.displayName(localization),
               style: const TextStyle(fontSize: 17),
+              overflow: TextOverflow.clip,
             )),
             const Icon(
               Icons.arrow_right_alt,
@@ -89,6 +90,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
                 child: Text(
               homePageState.toPlace.displayName(localization),
               style: const TextStyle(fontSize: 17),
+              overflow: TextOverflow.clip,
             )),
           ],
         ),
