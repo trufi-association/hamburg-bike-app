@@ -67,7 +67,7 @@ class DefaultLocationFormField extends StatelessWidget {
                         ? TextSpan(
                             style: textStyle,
                             text:
-                                "${value.displayName(localization)}${value.address != null ? ", ${value.address}" : ""}",
+                                "${value.displayName(localization)}${(value.address != null && value.address != '') ? ", ${value.address}" : ""}",
                           )
                         : TextSpan(
                             style: hintStyle,
