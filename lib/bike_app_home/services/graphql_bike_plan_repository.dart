@@ -116,8 +116,8 @@ class GraphqlBikePlanRepository {
       {'mode': TransportMode.bicycle.name},
     ];
     if (!isWeekend) {
-      if (date.hour <= 6 ||
-          date.hour >= 9 && date.hour <= 16 ||
+      if (date.hour < 6 ||
+          date.hour >= 9 && date.hour < 16 ||
           date.hour >= 18) {
         bikeAndPublicModes.add({'mode': TransportMode.transit.name});
       }
