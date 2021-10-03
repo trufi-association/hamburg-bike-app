@@ -51,7 +51,9 @@ class _CustomImprintPageState extends State<CustomImprintPage> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        "Nicht ohne mein Rad",
+                        isEnglish
+                            ? "Not without my Bike"
+                            : "Nicht ohne mein Rad",
                         style: TextStyle(
                           fontSize: 24,
                           color: Colors.white,
