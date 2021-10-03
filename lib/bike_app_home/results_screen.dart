@@ -79,6 +79,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
                 child: Text(
               homePageState.fromPlace.displayName(localization),
               style: const TextStyle(fontSize: 17),
+              overflow: TextOverflow.clip,
             )),
             const Icon(
               Icons.arrow_right_alt,
@@ -89,6 +90,7 @@ class _ResultsScreenState extends State<ResultsScreen> {
                 child: Text(
               homePageState.toPlace.displayName(localization),
               style: const TextStyle(fontSize: 17),
+              overflow: TextOverflow.clip,
             )),
           ],
         ),
@@ -107,127 +109,144 @@ class _ResultsScreenState extends State<ResultsScreen> {
               ),
             ],
           ),
-          ListView.builder(
-            shrinkWrap: true,
-            padding: EdgeInsets.zero,
-            itemCount: homePageState?.plan?.itineraries?.length ?? 0,
-            itemBuilder: (_, index) {
-              return Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  if (index == 0)
-                    Padding(
-                      padding: const EdgeInsets.only(top: 40, bottom: 30),
-                      child: Center(
-                        child: Text(
-                          islanguageCodeEn
-                              ? "We found ${homePageState?.plan?.itineraries?.length} "
-                                  "${homePageState.plan.itineraries.length > 1 ? "routes" : "route"} for you"
-                              : "Es gibt ${homePageState?.plan?.itineraries?.length} mögliche Routen",
-                          style:
-                              theme.textTheme.subtitle1.copyWith(fontSize: 25),
+          if ((homePageState?.plan?.itineraries?.length ?? 0) == 0)
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 40),
+              child: Center(
+                child: Text(
+                  islanguageCodeEn
+                      ? "No result was found for the selected connection and time."
+                      : "Für die angegebene Verbindung und Zeit wurde kein Ergebnis gefunden.",
+                  style: theme.textTheme.bodyText1.copyWith(fontSize: 25),
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            )
+          else
+            ListView.builder(
+              shrinkWrap: true,
+              padding: EdgeInsets.zero,
+              itemCount: homePageState.plan.itineraries.length,
+              itemBuilder: (_, index) {
+                return Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    if (index == 0)
+                      Padding(
+                        padding: const EdgeInsets.only(top: 40, bottom: 30),
+                        child: Center(
+                          child: Text(
+                            islanguageCodeEn
+                                ? "We found ${homePageState?.plan?.itineraries?.length} "
+                                    "${homePageState.plan.itineraries.length > 1 ? "routes" : "route"} for you"
+                                : "Es gibt ${homePageState?.plan?.itineraries?.length} mögliche Routen",
+                            style: theme.textTheme.subtitle1
+                                .copyWith(fontSize: 25),
+                          ),
+                        ),
+                      ),
+                    GestureDetector(
+                      onTap: () {
+                        _planPageController.inSelectedItinerary.add(
+                          homePageState?.plan?.itineraries[index]
+                              .copyWith(isOnlyShowItinerary: true),
+                        );
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => BikeDetailScreen(
+                              planPageController: _planPageController,
+                            ),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 35),
+                        margin: const EdgeInsets.symmetric(vertical: 10),
+                        child: CardItinerary(
+                          itinerary: homePageState?.plan?.itineraries[index],
                         ),
                       ),
                     ),
-                  GestureDetector(
-                    onTap: () {
-                      _planPageController.inSelectedItinerary.add(
-                        homePageState?.plan?.itineraries[index]
-                            .copyWith(isOnlyShowItinerary: true),
-                      );
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => BikeDetailScreen(
-                            planPageController: _planPageController,
-                          ),
-                        ),
-                      );
-                    },
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(horizontal: 35),
-                      margin: const EdgeInsets.symmetric(vertical: 10),
-                      child: CardItinerary(
-                        itinerary: homePageState?.plan?.itineraries[index],
-                      ),
-                    ),
-                  ),
-                  if (index == homePageState.plan.itineraries.length - 1)
-                    Column(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.only(
-                            top: 50,
-                            bottom: 10,
-                          ),
-                          child: Center(
-                            child: homePageState.isFetchLater
-                                ? const CircularProgressIndicator()
-                                : OutlinedButton(
-                                    onPressed: () async {
-                                      _fetchMoreitineraries(
-                                          context: context,
-                                          isFetchEarlier: false);
-                                    },
-                                    style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all<Color>(
-                                        const Color(0xffEAEAEA),
-                                      ),
-                                      padding:
-                                          MaterialStateProperty.all<EdgeInsets>(
-                                              const EdgeInsets.symmetric(
-                                                  horizontal: 10)),
-                                      side:
-                                          MaterialStateProperty.all<BorderSide>(
-                                        BorderSide(
-                                          color:
-                                              theme.textTheme.subtitle1.color,
+                    if (index == homePageState.plan.itineraries.length - 1)
+                      Column(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.only(
+                              top: 50,
+                              bottom: 10,
+                            ),
+                            child: Center(
+                              child: homePageState.isFetchLater
+                                  ? const CircularProgressIndicator()
+                                  : OutlinedButton(
+                                      onPressed: () async {
+                                        _fetchMoreitineraries(
+                                            context: context,
+                                            isFetchEarlier: false);
+                                      },
+                                      style: ButtonStyle(
+                                        backgroundColor:
+                                            MaterialStateProperty.all<Color>(
+                                          const Color(0xffEAEAEA),
+                                        ),
+                                        padding: MaterialStateProperty.all<
+                                                EdgeInsets>(
+                                            const EdgeInsets.symmetric(
+                                                horizontal: 10)),
+                                        side: MaterialStateProperty.all<
+                                            BorderSide>(
+                                          BorderSide(
+                                            color:
+                                                theme.textTheme.subtitle1.color,
+                                          ),
+                                        ),
+                                        shape: MaterialStateProperty.all<
+                                            OutlinedBorder>(
+                                          RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(5),
+                                          ),
+                                        ),
+                                        minimumSize:
+                                            MaterialStateProperty.all<Size>(
+                                          const Size(200, 50),
                                         ),
                                       ),
-                                      shape: MaterialStateProperty.all<
-                                          OutlinedBorder>(
-                                        RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(5),
+                                      child: Text(
+                                        islanguageCodeEn
+                                            ? "SHOW MORE"
+                                            : "MEHR ANZEIGEN",
+                                        style:
+                                            theme.textTheme.subtitle1.copyWith(
+                                          fontSize: 18,
+                                          fontWeight: FontWeight.bold,
                                         ),
-                                      ),
-                                      minimumSize:
-                                          MaterialStateProperty.all<Size>(
-                                        const Size(200, 50),
+                                        textAlign: TextAlign.center,
+                                        maxLines: 1,
                                       ),
                                     ),
-                                    child: Text(
-                                      islanguageCodeEn
-                                          ? "SHOW MORE"
-                                          : "MEHR ANZEIGEN",
-                                      style: theme.textTheme.subtitle1.copyWith(
-                                        fontSize: 18,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                      textAlign: TextAlign.center,
-                                      maxLines: 1,
-                                    ),
-                                  ),
+                            ),
                           ),
-                        ),
-                        if (isPortrait)
+                          if (isPortrait)
+                            SizedBox(
+                              height: homePageState.plan.itineraries.length > 3
+                                  ? 0
+                                  : ((4 -
+                                              homePageState
+                                                  .plan.itineraries.length) *
+                                          110.0) -
+                                      80,
+                            ),
                           SizedBox(
-                            height: homePageState.plan.itineraries.length > 3
-                                ? 0
-                                : ((4 - homePageState.plan.itineraries.length) *
-                                        110.0) -
-                                    80,
+                            height: 200,
                           ),
-                        SizedBox(
-                          height: 200,
-                        ),
-                      ],
-                    ),
-                ],
-              );
-            },
-          ),
+                        ],
+                      ),
+                  ],
+                );
+              },
+            ),
         ],
       ),
     );

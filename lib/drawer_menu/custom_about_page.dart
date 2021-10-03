@@ -51,7 +51,9 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Text(
-                        "Nicht ohne mein Rad",
+                        isEnglish
+                            ? "Not without my Bike"
+                            : "Nicht ohne mein Rad",
                         style: TextStyle(
                           fontSize: 24,
                           color: Colors.white,
@@ -138,7 +140,9 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                                           : "Lieber Fahrrad- und ÖPNV-Nutzer!\n\n",
                                     ),
                                     TextSpan(
-                                      text: "Nicht ohne mein Rad ",
+                                      text: isEnglish
+                                          ? "Not without my Bike "
+                                          : "Nicht ohne mein Rad ",
                                       style: textTheme.copyWith(
                                           fontWeight: FontWeight.bold),
                                     ),
@@ -164,7 +168,7 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                                     ),
                                     TextSpan(
                                       text: isEnglish
-                                          ? "Nicht ohne mein Rad Hamburg!"
+                                          ? "Not without my Bike Hamburg!"
                                           : "Nicht ohne mein Rad Hamburg!",
                                       style: textTheme.copyWith(
                                           fontWeight: FontWeight.bold),
