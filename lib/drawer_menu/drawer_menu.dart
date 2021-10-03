@@ -22,8 +22,6 @@ import 'package:share/share.dart';
 import 'custom_about_page.dart';
 import 'custom_imprint_page.dart';
 
-// const Locale("de"): "Nicht ohne mein Rad",
-//       const Locale("en"): "Not without my Bike"
 class CustomAppShareButtonMenu extends MenuItem {
   CustomAppShareButtonMenu()
       : super(
