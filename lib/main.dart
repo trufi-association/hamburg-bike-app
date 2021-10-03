@@ -23,7 +23,7 @@ Future<void> main() async {
       configuration: setupTrufiConfiguration(),
       mapTileProviders: [
         MapLayer(MapLayerIds.streets),
-        MapLayer(MapLayerIds.light),
+        // MapLayer(MapLayerIds.light),
         // MapLayer(MapLayerIds.dark),
       ],
       menuItems: menuItems,
