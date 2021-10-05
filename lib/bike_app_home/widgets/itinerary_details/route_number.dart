@@ -62,7 +62,7 @@ class RouteNumber extends StatelessWidget {
           child: Text(
             transportMode != TransportMode.bicycle
                 ? (tripHeadSing ?? '')
-                : (islanguageCodeEn ? "Cycling" : "Rad fahrens"),
+                : (islanguageCodeEn ? "Cycling" : "Rad fahren"),
             style: theme.primaryTextTheme.bodyText1
                 .copyWith(fontSize: 13, color: Colors.grey[700]),
             overflow: TextOverflow.ellipsis,
