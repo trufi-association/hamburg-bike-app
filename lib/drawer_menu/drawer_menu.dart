@@ -39,7 +39,7 @@ class CustomAppShareButtonMenu extends MenuItem {
             final currentLocale = Localizations.localeOf(context).languageCode;
             Share.share(currentLocale == "en"
                 ? """
-            Download the "Not without my Bike" app, the public transport app for Hamburg and its surroundings on https://bit.ly/3iopoyF
+            Download the "Not Without My Bike" app, the public transport app for Hamburg and its surroundings on https://bit.ly/3iopoyF
             """
                 : """
             Hol' dir die "Nicht ohne mein Rad" App für den öffentlichen Nahverkehr in Hamburg und Umgebung auf https://bit.ly/3iopoyF

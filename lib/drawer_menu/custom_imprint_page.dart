@@ -52,7 +52,7 @@ class _CustomImprintPageState extends State<CustomImprintPage> {
                     children: [
                       Text(
                         isEnglish
-                            ? "Not without my Bike"
+                            ? "Not Without My Bike"
                             : "Nicht ohne mein Rad",
                         style: TextStyle(
                           fontSize: 24,

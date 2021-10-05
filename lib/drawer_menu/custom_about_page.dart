@@ -52,7 +52,7 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                     children: [
                       Text(
                         isEnglish
-                            ? "Not without my Bike"
+                            ? "Not Without My Bike"
                             : "Nicht ohne mein Rad",
                         style: TextStyle(
                           fontSize: 24,
@@ -141,7 +141,7 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                                     ),
                                     TextSpan(
                                       text: isEnglish
-                                          ? "Not without my Bike "
+                                          ? "Not Without My Bike "
                                           : "Nicht ohne mein Rad ",
                                       style: textTheme.copyWith(
                                           fontWeight: FontWeight.bold),
@@ -168,7 +168,7 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                                     ),
                                     TextSpan(
                                       text: isEnglish
-                                          ? "Not without my Bike Hamburg!"
+                                          ? "Not Without My Bike Hamburg!"
                                           : "Nicht ohne mein Rad Hamburg!",
                                       style: textTheme.copyWith(
                                           fontWeight: FontWeight.bold),

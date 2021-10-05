@@ -76,7 +76,7 @@ Configuration setupTrufiConfiguration() {
   final customTranslations = TrufiCustomLocalizations()
     ..title = {
       const Locale("de"): "Nicht ohne mein Rad",
-      const Locale("en"): "Not without my Bike"
+      const Locale("en"): "Not Without My Bike"
     }
     ..tagline = {const Locale("de"): "Hamburg", const Locale("en"): "Hamburg"}
     ..searchItemNoResults = {

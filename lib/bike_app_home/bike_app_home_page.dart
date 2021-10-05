@@ -103,7 +103,7 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                       children: [
                         Text(
                           islanguageCodeEn
-                              ? "Not without my Bike"
+                              ? "Not Without My Bike"
                               : "Nicht ohne mein Rad",
                           style: TextStyle(
                             fontSize: 24,
