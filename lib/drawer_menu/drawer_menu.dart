@@ -146,11 +146,11 @@ final List<List<MenuItem>> menuItems = [
       id: HomePage.route,
       selectedIcon: (context) => const Icon(
         Icons.location_on_sharp,
-        color: Colors.black,
+        color: Color(0xFFE34A16),
       ),
       notSelectedIcon: (context) => const Icon(
         Icons.location_on_sharp,
-        color: Colors.grey,
+        color: Color(0xFFE34A16),
       ),
       name: (context) {
         final localization = TrufiLocalization.of(context);
@@ -158,6 +158,7 @@ final List<List<MenuItem>> menuItems = [
             ? "Connections"
             : localization.menuConnections;
       },
+      nameColor: Color(0xFFE34A16),
     ),
     MenuPageItem(
       id: SavedPlacesPage.route,
