@@ -241,7 +241,7 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                                           child: Container(
                                             padding: const EdgeInsets.all(5),
                                             decoration: BoxDecoration(
-                                              color: Colors.transparent,
+                                              color: const Color(0xFFF4F4F4),
                                               shape: BoxShape.circle,
                                               border: Border.all(),
                                             ),
