@@ -45,5 +45,10 @@
 	<string>The app is using your location to display it on a map.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>The app is using your location to display it on a map.</string>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+	  <string>https</string>
+	  <string>http</string>
+	</array>
 </dict>
 </plist>
