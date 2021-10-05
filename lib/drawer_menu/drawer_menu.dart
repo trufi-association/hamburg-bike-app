@@ -158,7 +158,7 @@ final List<List<MenuItem>> menuItems = [
             ? "Connections"
             : localization.menuConnections;
       },
-      nameColor: Color(0xFFE34A16),
+      nameColor: const Color(0xffE1011A),
     ),
     MenuPageItem(
       id: SavedPlacesPage.route,
