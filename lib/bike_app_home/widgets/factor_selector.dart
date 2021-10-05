@@ -81,10 +81,10 @@ class FactorSelector extends StatelessWidget {
         translation = islanguageCodeEn ? "Bike & Public Transport" : "Rad & ÖPNV";
         break;
       case TriangleFactor.morePublicTransport:
-        translation = islanguageCodeEn ? "More ÖPNV" : "Mehr ÖPNV";
+        translation = islanguageCodeEn ? "More Public Transport" : "Mehr ÖPNV";
         break;
       case TriangleFactor.unknown:
-        translation = islanguageCodeEn ? "Bike & ÖPNV" : "Rad&ÖPNV";
+        translation = islanguageCodeEn ? "Bike & Public Transport" : "Rad & ÖPNV";
     }
     return translation;
   }
