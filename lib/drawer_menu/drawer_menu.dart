@@ -39,7 +39,7 @@ class CustomAppShareButtonMenu extends MenuItem {
             final currentLocale = Localizations.localeOf(context).languageCode;
             Share.share(currentLocale == "en"
                 ? """
-            Download the "Not without my Bike" app, the public transport app for Hamburg and its surroundings on https://bit.ly/3iopoyF
+            Download the "Not Without My Bike" app, the public transport app for Hamburg and its surroundings on https://bit.ly/3iopoyF
             """
                 : """
             Hol' dir die "Nicht ohne mein Rad" App für den öffentlichen Nahverkehr in Hamburg und Umgebung auf https://bit.ly/3iopoyF
@@ -146,11 +146,11 @@ final List<List<MenuItem>> menuItems = [
       id: HomePage.route,
       selectedIcon: (context) => const Icon(
         Icons.location_on_sharp,
-        color: Colors.black,
+        color: Color(0xFFE34A16),
       ),
       notSelectedIcon: (context) => const Icon(
         Icons.location_on_sharp,
-        color: Colors.grey,
+        color: Color(0xFFE34A16),
       ),
       name: (context) {
         final localization = TrufiLocalization.of(context);
@@ -158,6 +158,7 @@ final List<List<MenuItem>> menuItems = [
             ? "Connections"
             : localization.menuConnections;
       },
+      nameColor: const Color(0xffE1011A),
     ),
     MenuPageItem(
       id: SavedPlacesPage.route,

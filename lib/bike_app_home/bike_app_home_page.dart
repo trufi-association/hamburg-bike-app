@@ -103,7 +103,7 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                       children: [
                         Text(
                           islanguageCodeEn
-                              ? "Not without my Bike"
+                              ? "Not Without My Bike"
                               : "Nicht ohne mein Rad",
                           style: TextStyle(
                             fontSize: 24,
@@ -241,7 +241,7 @@ class _BikeAppHomePageState extends State<BikeAppHomePage> {
                                           child: Container(
                                             padding: const EdgeInsets.all(5),
                                             decoration: BoxDecoration(
-                                              color: Colors.transparent,
+                                              color: const Color(0xFFF4F4F4),
                                               shape: BoxShape.circle,
                                               border: Border.all(),
                                             ),
