@@ -89,7 +89,7 @@ class GraphqlBikePlanRepository {
                     TriangleFactor.morePublicTransport
             ? 'TRIANGLE'
             : null,
-        'triangle': advancedOptions.triangleFactor.value,
+        'triangle': advancedOptions.triangleFactor.customValue,
         'locale': locale ?? 'de',
         'arriveBy': advancedOptions.arriveBy,
       },
@@ -126,4 +126,22 @@ class GraphqlBikePlanRepository {
     }
     return bikeAndPublicModes;
   }
+}
+
+extension on TriangleFactor {
+  static const customValues = <TriangleFactor, Map<String, double>>{
+    TriangleFactor.lessPublicTransport: {
+      'safetyFactor': 1,
+      'slopeFactor': 0,
+      'timeFactor': 0
+    },
+    TriangleFactor.normal: null,
+    TriangleFactor.morePublicTransport: {
+      'safetyFactor': 0,
+      'slopeFactor': 0,
+      'timeFactor': 1
+    },
+    TriangleFactor.unknown: null,
+  };
+  Map<String, double> get customValue => customValues[this];
 }
