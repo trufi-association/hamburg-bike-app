@@ -250,13 +250,6 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                       children: [
                         Expanded(
                           child: Image.asset(
-                            'assets/images/dataport.png',
-                            fit: BoxFit.contain,
-                          ),
-                        ),
-                        SizedBox(width: 10),
-                        Expanded(
-                          child: Image.asset(
                             'assets/custom_images/trufi-logo.png',
                             fit: BoxFit.contain,
                           ),
