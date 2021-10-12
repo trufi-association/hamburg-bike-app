@@ -236,11 +236,39 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                     ),
                   ),
                   const SizedBox(height: 50),
-                  Center(
-                    child: Image.asset(
-                      'assets/custom_images/trufi-logo.png',
-                      fit: BoxFit.fill,
-                      width: 115,
+                  Text(
+                    isEnglish ? "Further Partners:" : "Weitere Partne:",
+                    textAlign: TextAlign.center,
+                    style: textTheme.copyWith(),
+                  ),
+                  const SizedBox(height: 10),
+                  Container(
+                    height: 100,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Expanded(
+                          child: Image.asset(
+                            'assets/images/dataport.png',
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Image.asset(
+                            'assets/custom_images/trufi-logo.png',
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                        SizedBox(width: 10),
+                        Expanded(
+                          child: Image.asset(
+                            'assets/images/QUIBIQ_logo.png',
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   const SizedBox(height: 50),
