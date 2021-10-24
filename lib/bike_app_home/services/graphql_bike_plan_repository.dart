@@ -103,7 +103,7 @@ class GraphqlBikePlanRepository {
     if (planAdvancedData.hasException && planAdvancedData.data == null) {
       throw planAdvancedData.exception.graphqlErrors.isNotEmpty
           ? Exception("Bad request")
-          : Exception("Server Error");
+          : Exception("Connection error");
     }
     if (planAdvancedData.source.isEager) {
       await Future.delayed(const Duration(milliseconds: 200));
