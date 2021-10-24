@@ -13,6 +13,7 @@ fragment bikePlan on QueryType {
     maxWalkDistance: $maxWalkDistance,
     arriveBy: $arriveBy,
     optimize: $optimize, 
+    searchWindow: $searchWindow,
     triangle: $triangle, 
     locale: $locale,
     ) {
