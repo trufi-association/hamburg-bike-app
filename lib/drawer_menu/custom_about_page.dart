@@ -237,7 +237,7 @@ class _CustomAboutPageState extends State<CustomAboutPage> {
                   ),
                   const SizedBox(height: 50),
                   Text(
-                    isEnglish ? "Further Partners:" : "Weitere Partne:",
+                    isEnglish ? "Further Partners:" : "Weitere Partner:",
                     textAlign: TextAlign.center,
                     style: textTheme.copyWith(),
                   ),
