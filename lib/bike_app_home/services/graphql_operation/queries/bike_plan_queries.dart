@@ -66,6 +66,7 @@ query query_bike_plan_public(
   $arriveBy: Boolean!
   $optimize: OptimizeType
   $triangle: InputTriangle
+  $searchWindow: Long
   $locale: String
 ) {
   viewer {

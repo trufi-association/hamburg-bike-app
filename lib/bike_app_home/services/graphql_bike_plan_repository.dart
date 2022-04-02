@@ -83,13 +83,17 @@ class GraphqlBikePlanRepository {
         'maxWalkDistance': 4828.032,
         'numItineraries': 4,
         'bikeAndPublicModes': offTimes(date),
+        'searchWindow':
+            advancedOptions.triangleFactor == TriangleFactor.lessPublicTransport
+                ? 578
+                : null,
         'optimize': advancedOptions.triangleFactor ==
                     TriangleFactor.lessPublicTransport ||
                 advancedOptions.triangleFactor ==
                     TriangleFactor.morePublicTransport
             ? 'TRIANGLE'
             : null,
-        'triangle': advancedOptions.triangleFactor.value,
+        'triangle': advancedOptions.triangleFactor.customValue,
         'locale': locale ?? 'de',
         'arriveBy': advancedOptions.arriveBy,
       },
@@ -99,7 +103,7 @@ class GraphqlBikePlanRepository {
     if (planAdvancedData.hasException && planAdvancedData.data == null) {
       throw planAdvancedData.exception.graphqlErrors.isNotEmpty
           ? Exception("Bad request")
-          : Exception("Server Error");
+          : Exception("Connection error");
     }
     if (planAdvancedData.source.isEager) {
       await Future.delayed(const Duration(milliseconds: 200));
@@ -126,4 +130,22 @@ class GraphqlBikePlanRepository {
     }
     return bikeAndPublicModes;
   }
+}
+
+extension on TriangleFactor {
+  static const customValues = <TriangleFactor, Map<String, double>>{
+    TriangleFactor.lessPublicTransport: {
+      'safetyFactor': 1,
+      'slopeFactor': 0,
+      'timeFactor': 0
+    },
+    TriangleFactor.normal: null,
+    TriangleFactor.morePublicTransport: {
+      'safetyFactor': 0,
+      'slopeFactor': 0,
+      'timeFactor': 1
+    },
+    TriangleFactor.unknown: null,
+  };
+  Map<String, double> get customValue => customValues[this];
 }
